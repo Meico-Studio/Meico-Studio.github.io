@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>— MS. | Meico Studio — Selected Works</title>
+<meta name="description" content="Meico Studio — independent creative studio for digital experiences, identity and motion.">
+<meta property="og:title" content="— MS. | Meico Studio — Selected Works">
+<meta property="og:description" content="Meico Studio — selected work in identity, digital and motion.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23E4572E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-view="work">
+
+<header class="top">
+  <a href="#/" class="brand round-control" aria-label="Meico Studio home">M.</a>
+  <p class="top-label" id="top-label">Featured Projects</p>
+  <button class="menu-toggle round-control" id="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+<div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+  <nav aria-label="Primary">
+    <a href="#/" data-r="work">Home</a>
+    <a href="#work-grid" data-r="work">Portfolio<small>Selected work</small></a>
+    <a href="#/about" data-r="about">About</a>
+    <a href="#/contact" data-r="contact">Contact</a>
+    <a href="#/contact" data-r="contact">Start a project</a>
+  </nav>
+  <p class="menu-foot">MEICO STUDIO · DHAKA / EVERYWHERE</p>
+</div>
+<div class="page-transition" aria-hidden="true"></div>
+<div class="crosshair" aria-hidden="true"></div>
+<button class="slide-arrow slide-prev" id="slide-prev" aria-label="Previous project"><span>←</span></button><button class="slide-arrow slide-next" id="slide-next" aria-label="Next project"><span>→</span></button>
+
+<main>
+  <section class="view" id="v-work" data-view="work">
+    <section class="featured-slider" id="featured" aria-label="Featured projects">
+      <div class="featured-stage" id="featured-stage" tabindex="0" role="link" aria-label="Open featured project"></div>
+      <div class="featured-caption"><h1 id="featured-title"></h1><p id="featured-category"></p></div>
+      <div class="featured-count"><span id="slide-current">01</span><i></i><span id="slide-total">04</span></div>
+    </section>
+    <div class="work-heading" id="work-grid"><span class="section-title">Our Portfolio</span><span class="section-subtitle">Meico Studio / Selected Work</span><div class="filters" id="filters" role="tablist" aria-label="Filter works"></div></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="view page" id="v-about" data-view="about" hidden>
+    <p class="eyebrow">[ ABOUT ]</p>
+    <div class="about-grid">
+      <h2 id="about-title"></h2>
+      <div class="about-body"><div id="about-text"></div><dl id="about-lists"></dl></div>
+    </div>
+  </section>
+
+  <section class="view page" id="v-contact" data-view="contact" hidden>
+    <p class="eyebrow">[ CONTACT ]</p>
+    <a class="mail" id="mail"></a>
+    <form class="form" id="form">
+      <label>Name<input name="name" required autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label class="full">Message<textarea name="msg" rows="4" required></textarea></label>
+      <button class="btn" type="submit">Send message →</button>
+    </form>
+  </section>
+
+  <section class="view page project-page" id="v-project" data-view="project" hidden>
+    <section class="project-hero" id="project-hero">
+      <p class="project-kicker" id="project-kicker"></p>
+      <div class="project-hero-copy"><h1 id="project-hero-title"></h1><p id="project-hero-cat"></p></div>
+      <a class="project-scroll" href="#project-story">Scroll to explore <span>↓</span></a>
+    </section>
+    <section class="project-story" id="project-story">
+      <div class="p-stage media is-playing" id="p-stage"></div>
+      <div class="p-meta">
+        <div><p class="eyebrow" id="p-cats"></p><h2 id="p-title"></h2></div>
+        <div class="p-info"><p id="p-sub"></p><span id="p-tools"></span><a class="project-back" href="#work-grid">Back to all work <span>↗</span></a></div>
+      </div>
+    </section>
+    <section class="project-highlight" id="project-highlight">
+      <div class="highlight-icons" aria-hidden="true"><span>◉</span><span>⌘</span><span>✳</span></div>
+      <p class="highlight-label">MEICO STUDIO / <span id="highlight-label"></span></p>
+      <h2 id="highlight-title"></h2>
+      <p id="highlight-copy"></p>
+    </section>
+    <a class="p-next" id="p-next" href="#/"><small>Next project</small><span></span></a>
+  </section>
+</main>
+
+<footer class="foot">
+  <span class="foot-mark">MEICO STUDIO</span>
+  <div class="socials" id="socials"></div>
+  <span>Dhaka · Working everywhere &nbsp; © <span id="copy"></span></span>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
