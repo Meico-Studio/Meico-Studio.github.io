@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-view="work">
+<body data-view="portfolio">
 <header class="top">
-  <a href="#/" class="brand round-control" aria-label="Meico Studio home">MS</a>
+  <a href="#/home" class="brand round-control" aria-label="Meico Studio home">MS</a>
   <p class="top-label" id="top-label">Featured Projects</p>
   <button class="menu-toggle round-control" id="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
 </header>
 <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
   <nav aria-label="Primary">
-    <a href="#/" data-r="work">Home</a>
-    <a href="#work-grid" data-r="work">Portfolio</a>
+    <a href="#/home" data-r="home">Home</a>
+    <a href="#/portfolio" data-r="portfolio">Portfolio</a>
     <a href="#/about" data-r="about">About</a>
     <a href="#/contact" data-r="contact">Contact</a>
     <a href="#/contact" data-r="contact">Start a project</a>
@@ -28,13 +28,30 @@
 <div class="page-transition" aria-hidden="true"></div><div class="crosshair" aria-hidden="true"></div>
 <button class="slide-arrow slide-prev" id="slide-prev" aria-label="Previous project">←</button><button class="slide-arrow slide-next" id="slide-next" aria-label="Next project">→</button>
 <main>
-  <section class="view" id="v-work" data-view="work">
+  <section class="view home-page" id="v-home" data-view="home" hidden>
     <section class="featured-slider" id="featured" aria-label="Featured projects">
       <div class="featured-stage" id="featured-stage" tabindex="0" role="link" aria-label="Open featured project"></div>
       <div class="featured-caption"><h1 id="featured-title"></h1><p id="featured-category"></p></div>
       <div class="featured-count"><span id="slide-current">01</span><i></i><span id="slide-total">04</span></div>
     </section>
-    <div class="work-heading" id="work-grid"><span class="section-title">Our Portfolio</span><div class="filters" id="filters" role="tablist" aria-label="Filter works"></div></div>
+    <section class="home-reel" aria-label="Selected Meico Studio projects"><div id="home-reel-list"></div></section>
+    <section class="home-endcard">
+      <p class="eyebrow">MEICO STUDIO / SELECTED WORK</p>
+      <h2>View our entire<br>portfolio collection</h2>
+      <a class="see-more" href="#/portfolio">See more <span>↗</span></a>
+      <div class="end-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </section>
+  </section>
+  <section class="view portfolio-page" id="v-portfolio" data-view="portfolio">
+    <header class="portfolio-intro" id="work-grid">
+      <h1>Our Portfolio</h1>
+      <p>Made by Meico Studio</p>
+    </header>
+    <div class="portfolio-tools" aria-label="Portfolio controls">
+      <button class="page-action" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
+      <div class="filters" id="filters" role="tablist" aria-label="Filter works" hidden></div>
+      <button class="page-action page-action-right" id="scroll-top" type="button">Go top <span>↑</span></button>
+    </div>
     <div class="grid" id="grid"></div>
   </section>
   <section class="view page" id="v-about" data-view="about" hidden>
@@ -47,7 +64,7 @@
   <section class="view page project-page" id="v-project" data-view="project" hidden>
     <section class="project-hero" id="project-hero"><p class="project-kicker" id="project-kicker"></p><div class="project-hero-copy"><h1 id="project-hero-title"></h1><p id="project-hero-cat"></p></div><a class="project-scroll" href="#project-story">Scroll to explore <span>↓</span></a></section>
     <section class="project-story" id="project-story"><div class="p-stage media is-playing" id="p-stage"></div>
-      <div class="p-meta"><div><p class="eyebrow" id="p-cats"></p><h2 id="p-title"></h2></div><div class="p-info"><p id="p-sub"></p><span id="p-tools"></span><a class="project-back" href="#work-grid">Back to all work <span>↗</span></a></div></div>
+      <div class="p-meta"><div><p class="eyebrow" id="p-cats"></p><h2 id="p-title"></h2></div><div class="p-info"><p id="p-sub"></p><span id="p-tools"></span><a class="project-back" href="#/portfolio">Back to all work <span>↗</span></a></div></div>
     </section>
     <section class="project-highlight" id="project-highlight"><div class="highlight-icons" aria-hidden="true"><span>◉</span><span>⌘</span><span>✳</span></div><p class="highlight-label">MEICO STUDIO / <span id="highlight-label"></span></p><h2 id="highlight-title"></h2><p id="highlight-copy"></p></section>
     <a class="p-next" id="p-next" href="#/"><small>Next project</small><span></span></a>
