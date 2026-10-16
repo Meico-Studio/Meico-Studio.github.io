@@ -49,7 +49,7 @@ body.menu-open { overflow: hidden; }
 @keyframes curtain { 0% { transform: scaleY(0); transform-origin: bottom; } 48% { transform: scaleY(1); transform-origin: bottom; } 52% { transform-origin: top; } 100% { transform: scaleY(0); transform-origin: top; } }
 
 .view:not([hidden]) { animation: view-in .75s var(--ease) both; }
-@keyframes view-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes view-in { from { opacity: 0; } to { opacity: 1; } }
 
 /* Featured work carousel */
 .featured-slider { min-height: 100svh; height: 100svh; position: relative; display: grid; place-items: center; padding: 92px var(--pad) 82px; overflow: hidden; }
