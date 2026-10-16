@@ -1,6 +1,6 @@
 /* ==========================================================================
-   SCRIPT.JS — minimalist staggered grid with hover-autoplay video, filters,
-   project pages and a tiny hash router. Content comes from js/data.js.
+   SCRIPT.JS — Meico Studio portfolio gallery, featured-work home and project
+   pages. Content comes from js/data.js.
    ========================================================================== */
 (() => {
   'use strict';
@@ -18,7 +18,7 @@
   const menu = $('#menu-overlay');
   const menuToggle = $('#menu-toggle');
   const topLabel = $('#top-label');
-  let featureIndex = 0, featureTimer = 0, featureRevision = 0;
+  let featureIndex = 0, featureRevision = 0;
 
   function setMenu(open) {
     menu.classList.toggle('open', open);
@@ -30,8 +30,8 @@
   function navigate(hash) {
     setMenu(false);
     if (hash === '#work-grid') {
-      if (location.hash === '#work-grid') route();
-      else location.hash = '#work-grid';
+      if (location.hash === '#/portfolio') route();
+      else location.hash = '#/portfolio';
       return;
     }
     if (location.hash === hash) { route(); return; }
@@ -43,12 +43,12 @@
   }
   menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
   $$('.menu-overlay nav a').forEach(a => a.addEventListener('click', e => { e.preventDefault(); navigate(a.getAttribute('href')); }));
-  $('.brand').addEventListener('click', e => { e.preventDefault(); navigate('#/'); });
+  $('.brand').addEventListener('click', e => { e.preventDefault(); navigate('#/home'); });
   $('.project-scroll').addEventListener('click', e => {
     e.preventDefault();
     $('#project-story').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
   });
-  addEventListener('keydown', e => { if (e.key === 'Escape') { setMenu(false); resetFeatureTimer(); } });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
   /* ---------- Placeholder art (live SVG motion until a video exists) ---------- */
   const shield = '<path class="st" d="M80 12 L113 23 V46 C113 64 98 76 80 82 C62 76 47 64 47 46 V23 Z"/>';
@@ -114,10 +114,14 @@
 
   /* ---------- Grid ---------- */
   const grid = $('#grid');
+  const homeReel = $('#home-reel-list');
+  const portfolioDots = $('#portfolio-dots');
+  const homeDots = $('#home-dots');
   const revealIO = new IntersectionObserver(entries => entries.forEach(entry => {
     if (entry.isIntersecting) { entry.target.classList.add('revealed'); revealIO.unobserve(entry.target); }
   }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
-  const cards = S.projects.map(item => {
+  const ratios = ['.68', '.70', '.68', '.74', '.72', '.68', '.72', '.68'];
+  const cards = S.projects.map((item, index) => {
     const el = document.createElement('article');
     el.className = 'card'; el.tabIndex = 0;
     el.setAttribute('role', 'link'); el.setAttribute('aria-label', 'Open ' + item.title);
@@ -125,6 +129,7 @@
     el.innerHTML = `<div class="media">${mediaInner(item)}<span class="live"></span><div class="cap"><h3>${esc(item.title)}</h3><span>${esc(catLine(item))}</span></div></div>`;
     const media = $('.media', el);
     media.style.setProperty('--tone', item.color || '#222');
+    media.style.setProperty('--ratio', item.ratio || ratios[index % ratios.length]);
     const player = makePlayer(media, item);
     loadIO.observe(media);
     revealIO.observe(el);
@@ -144,7 +149,7 @@
 
   // Distribute visible cards round-robin into columns; the middle column is offset
   let filter = 'All';
-  const colCount = () => innerWidth > 860 ? 3 : 2;
+  const colCount = () => innerWidth > 900 ? 3 : 2;
   let lastCols = 0;
   function layout() {
     const n = colCount();
@@ -159,25 +164,83 @@
     });
     list.forEach((c, i) => { c.el.style.setProperty('--n', i); cols[i % n].appendChild(c.el); });
     lastCols = n;
+    if (portfolioDots) {
+      cards.forEach((c, i) => { const dot = portfolioDots.children[i]; if (dot) dot.hidden = !list.includes(c); });
+      if (!list.includes(cards[activePortfolioIndex])) setPortfolioActive(cards.indexOf(list[0]));
+    }
   }
   addEventListener('resize', () => { if (colCount() !== lastCols) layout(); });
 
   const cats = [...new Set(S.projects.flatMap(p => p.cats || []))];
   const filtersEl = $('#filters');
+  const filterToggle = $('#filter-toggle');
   filtersEl.innerHTML = ['All', ...cats].map(c => `<button role="tab" data-c="${esc(c)}" aria-selected="${c === 'All'}">${esc(c)}</button>`).join('');
+  filterToggle.addEventListener('click', () => {
+    const open = filterToggle.getAttribute('aria-expanded') !== 'true';
+    filterToggle.setAttribute('aria-expanded', String(open));
+    filtersEl.hidden = !open;
+  });
   filtersEl.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     filter = b.dataset.c;
     $$('button', filtersEl).forEach(x => x.setAttribute('aria-selected', x === b));
     layout();
   });
+  $('#scroll-top').addEventListener('click', () => scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
 
-  /* ---------- Featured carousel ---------- */
-  const featuredItems = S.projects.slice(0, 4);
+  let activePortfolioIndex = 0;
+  function setPortfolioActive(index) {
+    if (index < 0) return;
+    activePortfolioIndex = index;
+    [...portfolioDots.children].forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)));
+  }
+  portfolioDots.innerHTML = cards.map(({ item }, i) => `<button type="button" aria-label="Go to ${esc(item.title)}" aria-current="${i === 0}" data-index="${i}"></button>`).join('');
+  portfolioDots.addEventListener('click', e => {
+    const dot = e.target.closest('button'); if (!dot) return;
+    const card = cards[Number(dot.dataset.index)];
+    card?.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+  });
+  const portfolioProgressIO = new IntersectionObserver(entries => {
+    const current = entries.filter(e => e.isIntersecting).sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top))[0];
+    if (current) setPortfolioActive(cards.findIndex(c => c.el === current.target));
+  }, { rootMargin: '-42% 0px -42% 0px', threshold: 0 });
+  cards.forEach(c => portfolioProgressIO.observe(c.el));
+
+  /* ---------- Selected projects on the home page ---------- */
+  const reelItems = S.projects.slice(1, 5);
+  homeReel.innerHTML = reelItems.map((item, i) => `<a class="home-reel-card" data-home-index="${i + 1}" href="#/project/${esc(item.id)}" style="--tone:${esc(item.color || '#222')}">
+    <div class="home-reel-media">${mediaInner(item)}</div>
+    <div class="home-reel-copy"><h2>${esc(item.title)}</h2><p>${esc(catLine(item))}</p></div>
+  </a>`).join('');
+  const homeVideoIO = new IntersectionObserver(entries => entries.forEach(e => {
+    const video = $('video', e.target);
+    if (!video) return;
+    if (e.isIntersecting) {
+      if (!video.src) video.src = video.dataset.src;
+      video.play().catch(() => {});
+    } else video.pause();
+  }), { rootMargin: '160px' });
+  $$('.home-reel-card', homeReel).forEach((a, i) => {
+    a.addEventListener('click', e => { e.preventDefault(); navigate(a.getAttribute('href')); });
+    const video = $('video', a);
+    if (video) {
+      const media = $('.home-reel-media', a);
+      video.addEventListener('loadeddata', () => media.classList.add('has-video'), { once: true });
+      video.addEventListener('error', () => video.remove(), { once: true });
+      video.dataset.src = reelItems[i].src;
+      homeVideoIO.observe(a);
+    }
+  });
+  $('.see-more').addEventListener('click', e => { e.preventDefault(); navigate('#/portfolio'); });
+  $('.project-back').addEventListener('click', e => { e.preventDefault(); navigate('#/portfolio'); });
+  $('#p-next').addEventListener('click', e => { e.preventDefault(); navigate(e.currentTarget.getAttribute('href')); });
+
+  /* ---------- Featured home sequence ---------- */
+  const featuredItems = S.projects.slice(0, 5);
   function showFeatured(index) {
     if (!featuredItems.length) return;
-    featureIndex = (index + featuredItems.length) % featuredItems.length;
-    const item = featuredItems[featureIndex], rev = ++featureRevision;
+    featureIndex = Math.max(0, Math.min(featuredItems.length - 1, index));
+    const item = featuredItems[0], rev = ++featureRevision;
     featuredStage.classList.add('switching');
     setTimeout(() => {
       if (rev !== featureRevision) return;
@@ -196,28 +259,33 @@
       }
       $('#featured-title').textContent = item.title;
       $('#featured-category').textContent = catLine(item);
-      $('#slide-current').textContent = pad(featureIndex + 1);
+      $('#slide-current').textContent = pad(1);
       $('#slide-total').textContent = pad(featuredItems.length);
       featuredStage.setAttribute('aria-label', 'Open ' + item.title);
       featuredStage.classList.remove('switching');
     }, reduce ? 0 : 220);
   }
-  function resetFeatureTimer() {
-    clearInterval(featureTimer);
-    if (!reduce && document.visibilityState === 'visible' && document.body.dataset.view === 'work' && !menu.classList.contains('open')) {
-      featureTimer = setInterval(() => showFeatured(featureIndex + 1), 6800);
-    }
+  const homePanels = [featured, ...$$('.home-reel-card', homeReel), $('.home-endcard')].filter(Boolean);
+  homeDots.innerHTML = homePanels.map((_, i) => `<button type="button" aria-label="Go to featured section ${i + 1}" aria-current="${i === 0}"></button>`).join('');
+  function goHome(index) {
+    const next = Math.max(0, Math.min(homePanels.length - 1, index));
+    homePanels[next]?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
   }
-  $('#slide-prev').addEventListener('click', () => { showFeatured(featureIndex - 1); resetFeatureTimer(); });
-  $('#slide-next').addEventListener('click', () => { showFeatured(featureIndex + 1); resetFeatureTimer(); });
+  homeDots.addEventListener('click', e => {
+    const dot = e.target.closest('button'); if (dot) goHome([...homeDots.children].indexOf(dot));
+  });
+  $('#slide-prev').addEventListener('click', () => goHome(featureIndex - 1));
+  $('#slide-next').addEventListener('click', () => goHome(featureIndex + 1));
   featuredStage.addEventListener('click', () => navigate('#/project/' + featuredStage.dataset.project));
   featuredStage.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); navigate('#/project/' + featuredStage.dataset.project); } });
-  featuredStage.addEventListener('mouseenter', () => clearInterval(featureTimer));
-  featuredStage.addEventListener('mouseleave', resetFeatureTimer);
-  $('#menu-toggle').addEventListener('click', resetFeatureTimer);
-  addEventListener('visibilitychange', resetFeatureTimer);
+  const homeProgressIO = new IntersectionObserver(entries => {
+    const current = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!current) return;
+    featureIndex = homePanels.indexOf(current.target);
+    [...homeDots.children].forEach((dot, i) => dot.setAttribute('aria-current', String(i === featureIndex)));
+  }, { threshold: [0.35, 0.55, 0.75] });
+  homePanels.forEach(panel => homeProgressIO.observe(panel));
   showFeatured(0);
-  resetFeatureTimer();
 
   /* ---------- Project page ---------- */
   function fillProject(id) {
@@ -254,23 +322,26 @@
   const navLinks = $$('.menu-overlay nav a');
   const TITLE = 'MEICO® — Independent Creative Studio';
   function route() {
-    const isWorkAnchor = location.hash === '#work-grid';
+    const isPortfolioAnchor = location.hash === '#work-grid';
     const [a, b] = (location.hash.startsWith('#/') ? location.hash.slice(2) : '').split('/');
-    const view = a === 'about' ? 'about' : a === 'contact' ? 'contact' : (a === 'project' && b) ? 'project' : 'work';
+    const view = a === 'about' ? 'about' : a === 'contact' ? 'contact' : (a === 'project' && b) ? 'project' : a === 'home' ? 'home' : 'portfolio';
     pauseAll();
     $$('.view').forEach(v => { v.hidden = v.dataset.view !== view; });
     document.body.dataset.view = view;
     navLinks.forEach(l => l.classList.toggle('on', l.dataset.r === view));
-    featured.hidden = view !== 'work';
+    featured.hidden = view !== 'home';
     const featuredVideo = $('video', featuredStage);
-    if (view === 'work' && featuredVideo) featuredVideo.play().catch(() => {});
+    if (view === 'home' && featuredVideo) featuredVideo.play().catch(() => {});
     else if (featuredVideo) featuredVideo.pause();
-    topLabel.textContent = view === 'work' ? 'Featured Projects' : view === 'about' ? 'About Meico Studio' : view === 'contact' ? 'Start a Conversation' : 'Selected Project';
+    topLabel.textContent = view === 'portfolio' ? '' : view === 'home' ? 'Featured Projects' : view === 'about' ? 'About Meico Studio' : view === 'contact' ? 'Start a Conversation' : 'Selected Project';
+    if (view !== 'portfolio') {
+      filtersEl.hidden = true;
+      filterToggle.setAttribute('aria-expanded', 'false');
+    }
     document.title = TITLE;
     if (view === 'project') fillProject(b);
-    if (isWorkAnchor) requestAnimationFrame(() => $('#work-grid').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }));
+    if (isPortfolioAnchor) requestAnimationFrame(() => $('#work-grid').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }));
     else scrollTo(0, 0);
-    resetFeatureTimer();
   }
   addEventListener('hashchange', route);
 
