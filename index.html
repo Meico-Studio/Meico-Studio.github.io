@@ -1,80 +1,83 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MEICO® — Independent Creative Studio</title>
-<meta name="description" content="Meico Studio — independent creative studio for digital experiences, identity and motion.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23000'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='18' fill='white'%3EM%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261016-4">
-</head>
-<body data-view="portfolio">
-<header class="top">
-  <a href="#/portfolio" class="brand" aria-label="Meico Studio home">Meico Studio</a>
-  <p class="top-label" id="top-label" aria-hidden="true">Featured Projects</p>
-  <nav class="main-nav" aria-label="Primary">
-    <a href="#/portfolio" data-r="portfolio">Work</a>
-    <a href="#/about" data-r="about">About</a>
-    <a href="#/contact" data-r="contact">Contact</a>
-  </nav>
-  <button class="menu-toggle round-control" id="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
-</header>
-<div class="menu-overlay" id="menu-overlay" aria-hidden="true">
-  <nav aria-label="Primary">
-    <a href="#/home" data-r="home">Home</a>
-    <a href="#/portfolio" data-r="portfolio">Portfolio</a>
-    <a href="#/about" data-r="about">About</a>
-    <a href="#/contact" data-r="contact">Contact</a>
-    <a href="#/contact" data-r="contact">Start a project</a>
-  </nav>
-  <p class="menu-foot">MEICO STUDIO · DHAKA / EVERYWHERE</p>
-</div>
-<div class="page-transition" aria-hidden="true"></div><div class="crosshair" aria-hidden="true"></div>
-<button class="slide-arrow slide-prev" id="slide-prev" aria-label="Previous project">←</button><button class="slide-arrow slide-next" id="slide-next" aria-label="Next project">→</button>
-<main>
-  <section class="view home-page" id="v-home" data-view="home" hidden>
-    <section class="featured-slider" id="featured" aria-label="Featured projects">
-      <div class="featured-stage" id="featured-stage" tabindex="0" role="link" aria-label="Open featured project"></div>
-      <div class="featured-caption"><h1 id="featured-title"></h1><p id="featured-category"></p></div>
-      <div class="featured-count"><span id="slide-current">01</span><i></i><span id="slide-total">04</span></div>
-    </section>
-    <section class="home-reel" aria-label="Selected Meico Studio projects"><div id="home-reel-list"></div></section>
-    <section class="home-endcard">
-      <h2>View our entire<br>portfolio projects collection</h2>
-      <a class="see-more" href="#/portfolio">See more <span>↗</span></a>
-    </section>
-    <nav class="home-dots" id="home-dots" aria-label="Featured project sections"></nav>
-  </section>
-  <section class="view portfolio-page" id="v-portfolio" data-view="portfolio">
-    <header class="portfolio-intro" id="work-grid">
-      <h1>Our Portfolio</h1>
-      <p>Made by Meico Studio</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Selected films and moving images by Meico Studio." />
+    <title>Meico Studio — Film &amp; Motion</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="projects.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#work">Skip to work</a>
+
+    <header class="site-header" id="top">
+      <a class="wordmark" href="#top" aria-label="Meico Studio home">Meico Studio</a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <div class="nav-links">
+          <a class="nav-link is-current" href="#work">Work</a>
+          <a class="nav-link" href="#studio">Studio</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
+        <div class="nav-social" aria-label="Social links">
+          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.1" y="3.1" width="17.8" height="17.8" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="instagram-dot" cx="17.8" cy="6.4" r="1"/></svg>
+          </a>
+          <a class="social-link vimeo-link" href="https://vimeo.com/meico" target="_blank" rel="noreferrer" aria-label="Vimeo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.1 6.8c-.1 2.7-2 6.4-5.7 11.1-1.9 2.5-3.6 3.7-4.9 3.7-.8 0-1.6-.8-2.2-2.3L6.9 13C6 9.9 5 8.4 4 8.4c-.2 0-.9.5-2.1 1.4L.6 8.1l3.3-2.9c1.5-1.3 2.7-2 3.5-2.1 1.9-.2 3.1 1.1 3.5 3.8.5 2.9.8 4.8 1 5.5.5 2.4 1.1 3.6 1.8 3.6.5 0 1.2-.8 2.2-2.3 1-1.6 1.6-2.8 1.7-3.6.2-1.4-.4-2.1-1.7-2.1-.6 0-1.3.1-2 .4 1.3-4.3 3.7-6.3 7.1-6.2 2.6.1 3.8 1.9 3.7 5.4Z"/></svg>
+          </a>
+        </div>
+      </nav>
     </header>
-    <div class="portfolio-tools" aria-label="Portfolio controls">
-      <button class="page-action" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
-      <div class="filters" id="filters" role="tablist" aria-label="Filter works" hidden></div>
-      <button class="page-action page-action-right" id="scroll-top" type="button">Go top <span>↑</span></button>
-    </div>
-    <div class="grid" id="grid"></div>
-    <nav class="portfolio-dots" id="portfolio-dots" aria-label="Portfolio items"></nav>
-  </section>
-  <section class="view page" id="v-about" data-view="about" hidden>
-    <p class="eyebrow">[ ABOUT ]</p><div class="about-grid"><h2 id="about-title"></h2><div class="about-body"><div id="about-text"></div><dl id="about-lists"></dl></div></div>
-  </section>
-  <section class="view page" id="v-contact" data-view="contact" hidden>
-    <p class="eyebrow">[ CONTACT ]</p><a class="mail" id="mail"></a>
-    <form class="form" id="form"><label>Name<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label><label class="full">Message<textarea name="msg" rows="4" required></textarea></label><button class="btn" type="submit">Send message →</button></form>
-  </section>
-  <section class="view page project-page" id="v-project" data-view="project" hidden>
-    <section class="project-hero" id="project-hero"><p class="project-kicker" id="project-kicker"></p><div class="project-hero-copy"><h1 id="project-hero-title"></h1><p id="project-hero-cat"></p></div><a class="project-scroll" href="#project-story">Scroll to explore <span>↓</span></a></section>
-    <section class="project-story" id="project-story"><div class="p-stage media is-playing" id="p-stage"></div>
-      <div class="p-meta"><div><p class="eyebrow" id="p-cats"></p><h2 id="p-title"></h2></div><div class="p-info"><p id="p-sub"></p><span id="p-tools"></span><a class="project-back" href="#/portfolio">Back to all work <span>↗</span></a></div></div>
-    </section>
-    <section class="project-highlight" id="project-highlight"><div class="highlight-icons" aria-hidden="true"><span>◉</span><span>⌘</span><span>✳</span></div><p class="highlight-label">MEICO STUDIO / <span id="highlight-label"></span></p><h2 id="highlight-title"></h2><p id="highlight-copy"></p></section>
-    <a class="p-next" id="p-next" href="#/"><small>Next project</small><span></span></a>
-  </section>
-</main>
-<footer class="foot"><span class="foot-mark">MEICO STUDIO</span><div class="socials" id="socials"></div><span>Dhaka · Working everywhere &nbsp; © <span id="copy"></span></span></footer>
-<script src="js/data.js"></script><script src="js/script.js?v=20261016-3"></script>
-</body></html>
+
+    <main>
+      <section class="work-section" id="work" aria-labelledby="work-heading">
+        <h1 class="sr-only" id="work-heading">Selected work</h1>
+        <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-social" aria-label="Social links">
+        <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.1" y="3.1" width="17.8" height="17.8" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle class="instagram-dot" cx="17.8" cy="6.4" r="1"/></svg>
+        </a>
+        <a class="social-link vimeo-link" href="https://vimeo.com/meico" target="_blank" rel="noreferrer" aria-label="Vimeo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.1 6.8c-.1 2.7-2 6.4-5.7 11.1-1.9 2.5-3.6 3.7-4.9 3.7-.8 0-1.6-.8-2.2-2.3L6.9 13C6 9.9 5 8.4 4 8.4c-.2 0-.9.5-2.1 1.4L.6 8.1l3.3-2.9c1.5-1.3 2.7-2 3.5-2.1 1.9-.2 3.1 1.1 3.5 3.8.5 2.9.8 4.8 1 5.5.5 2.4 1.1 3.6 1.8 3.6.5 0 1.2-.8 2.2-2.3 1-1.6 1.6-2.8 1.7-3.6.2-1.4-.4-2.1-1.7-2.1-.6 0-1.3.1-2 .4 1.3-4.3 3.7-6.3 7.1-6.2 2.6.1 3.8 1.9 3.7 5.4Z"/></svg>
+        </a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#work">Work</a>
+        <a href="#studio">Studio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="footer-email" href="mailto:info.meicostudio@gmail.com">info.meicostudio@gmail.com</a>
+      <p class="footer-caption" id="studio">Independent film &amp; visual storytelling</p>
+      <p class="copyright">© <span id="copyright-year"></span> Meico Studio</p>
+    </footer>
+
+    <dialog class="video-dialog" id="video-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-topline">
+        <div>
+          <p class="eyebrow" id="dialog-meta"></p>
+          <h2 id="dialog-title"></h2>
+        </div>
+        <button class="close-dialog" type="button" aria-label="Close video">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg>
+        </button>
+      </div>
+      <div class="dialog-player-wrap">
+        <video id="dialog-video" controls controlslist="nodownload noplaybackrate" disablepictureinpicture playsinline preload="metadata"></video>
+      </div>
+      <p class="dialog-description" id="dialog-description"></p>
+    </dialog>
+  </body>
+</html>
