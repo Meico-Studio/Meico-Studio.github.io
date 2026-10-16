@@ -43,7 +43,7 @@
   }
   menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
   $$('.menu-overlay nav a').forEach(a => a.addEventListener('click', e => { e.preventDefault(); navigate(a.getAttribute('href')); }));
-  $('.brand').addEventListener('click', e => { e.preventDefault(); navigate('#/home'); });
+  $('.brand').addEventListener('click', e => { e.preventDefault(); navigate('#/portfolio'); });
   $('.project-scroll').addEventListener('click', e => {
     e.preventDefault();
     $('#project-story').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
@@ -126,7 +126,7 @@
     el.className = 'card'; el.tabIndex = 0;
     el.setAttribute('role', 'link'); el.setAttribute('aria-label', 'Open ' + item.title);
     el.style.setProperty('--glow', (item.color || '#222') + '99');
-    el.innerHTML = `<div class="media">${mediaInner(item)}<span class="live"></span><div class="cap"><h3>${esc(item.title)}</h3><span>${esc(catLine(item))}</span></div></div>`;
+    el.innerHTML = `<div class="media">${mediaInner(item)}</div><div class="cap"><h3>${esc(item.title)}</h3><span>${esc(catLine(item))}</span></div>`;
     const media = $('.media', el);
     media.style.setProperty('--tone', item.color || '#222');
     media.style.setProperty('--ratio', item.ratio || ratios[index % ratios.length]);
@@ -147,7 +147,7 @@
     return { item, el, player };
   });
 
-  // Distribute visible cards round-robin into columns; the middle column is offset
+  // Keep project cards in source order and let CSS Grid form a clean portfolio.
   let filter = 'All';
   const colCount = () => innerWidth > 900 ? 3 : 2;
   let lastCols = 0;
@@ -156,13 +156,7 @@
     const list = cards.filter(c => filter === 'All' || c.item.cats.includes(filter));
     cards.forEach(c => { if (!list.includes(c)) c.player.pause(); });
     grid.replaceChildren();
-    const cols = Array.from({ length: n }, (_, i) => {
-      const d = document.createElement('div');
-      d.className = 'gcol' + (n > 1 && i % 2 === 1 ? ' off' : '');
-      grid.appendChild(d);
-      return d;
-    });
-    list.forEach((c, i) => { c.el.style.setProperty('--n', i); cols[i % n].appendChild(c.el); });
+    list.forEach(c => grid.appendChild(c.el));
     lastCols = n;
     if (portfolioDots) {
       cards.forEach((c, i) => { const dot = portfolioDots.children[i]; if (dot) dot.hidden = !list.includes(c); });
@@ -319,7 +313,7 @@
   }
 
   /* ---------- Router ---------- */
-  const navLinks = $$('.menu-overlay nav a');
+  const navLinks = $$('.main-nav a');
   const TITLE = 'MEICO® — Independent Creative Studio';
   function route() {
     const isPortfolioAnchor = location.hash === '#work-grid';
