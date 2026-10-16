@@ -1,6 +1,7 @@
 (() => {
   const projects = Array.isArray(window.MEICO_PROJECTS) ? window.MEICO_PROJECTS : [];
   const grid = document.querySelector("#project-grid");
+  const filters = document.querySelector("#work-filters");
   const dialog = document.querySelector("#video-dialog");
   const dialogVideo = document.querySelector("#dialog-video");
   const closeButton = document.querySelector(".close-dialog");
@@ -10,6 +11,7 @@
   const hoverAvailable = window.matchMedia("(hover: hover) and (pointer: fine)");
   const mobileNavigation = window.matchMedia("(max-width: 800px)");
   let activePreview = null;
+  let activeCategory = "all";
 
   dialogVideo.disablePictureInPicture = true;
 
@@ -28,6 +30,47 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   })[character]);
 
+  const projectCategories = (project) => Array.isArray(project.categories) && project.categories.length
+    ? project.categories
+    : [project.category].filter(Boolean);
+
+  const pluralCategory = (category) => ({
+    Illustration: "Illustrations",
+    Icon: "Icons",
+    Character: "Characters"
+  })[category] || `${category}s`;
+
+  function renderFilters() {
+    const counts = new Map();
+    projects.forEach((project) => projectCategories(project).forEach((category) => {
+      counts.set(category, (counts.get(category) || 0) + 1);
+    }));
+
+    const options = [
+      { key: "all", label: "All work", count: projects.length },
+      ...Array.from(counts, ([category, count]) => ({ key: category, label: pluralCategory(category), count }))
+    ];
+
+    filters.innerHTML = options.map((option) => `
+      <button class="category-filter" type="button" data-filter="${escapeHTML(option.key)}" aria-pressed="${option.key === activeCategory}">
+        <span>${escapeHTML(option.label)}</span><span class="filter-count">${option.count}</span>
+      </button>
+    `).join("");
+
+    filters.querySelectorAll(".category-filter").forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.filter;
+        filters.querySelectorAll(".category-filter").forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        grid.querySelectorAll(".project-card").forEach((card) => {
+          const project = projects[Number(card.dataset.index)];
+          card.hidden = activeCategory !== "all" && !projectCategories(project).includes(activeCategory);
+        });
+      });
+    });
+  }
+
   function renderProjects() {
     grid.innerHTML = projects.map((project, index) => `
       <article class="project-card" data-index="${index}">
@@ -40,6 +83,7 @@
         <div class="project-title-row">
           <button class="project-title" type="button">${escapeHTML(project.title)}</button>
         </div>
+        <p class="project-category">${escapeHTML(project.category || "")}</p>
       </article>
     `).join("");
 
@@ -141,5 +185,6 @@
   setMenuOpen(false);
 
   document.querySelector("#copyright-year").textContent = new Date().getFullYear();
+  renderFilters();
   renderProjects();
 })();
