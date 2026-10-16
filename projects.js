@@ -2,7 +2,8 @@
 window.MEICO_PROJECTS = [
   {
     title: "Analytics Dashboard",
-    category: "Data visualization",
+    category: "Illustration",
+    categories: ["Illustration"],
     description: "A motion design piece built around turning live data into clear visual signals.",
     poster: "assets/posters/analytics-dashboard.jpg",
     preview: "assets/previews/analytics-dashboard.mp4",
@@ -10,7 +11,8 @@ window.MEICO_PROJECTS = [
   },
   {
     title: "Code Window",
-    category: "Developer tools",
+    category: "Illustration",
+    categories: ["Illustration"],
     description: "A typographic interface study for tools made by people who build for the web.",
     poster: "assets/posters/code-window.jpg",
     preview: "assets/previews/code-window.mp4",
@@ -18,7 +20,8 @@ window.MEICO_PROJECTS = [
   },
   {
     title: "AI Circuit",
-    category: "AI & motion",
+    category: "Icon",
+    categories: ["Icon"],
     description: "An animated concept exploring artificial intelligence and connected systems.",
     poster: "assets/posters/ai-brain-circuit.jpg",
     preview: "assets/previews/ai-brain-circuit.mp4",
@@ -26,7 +29,8 @@ window.MEICO_PROJECTS = [
   },
   {
     title: "Phone Ad",
-    category: "Campaign film",
+    category: "Illustration",
+    categories: ["Illustration"],
     description: "A mobile-first announcement creative built to make a product update stand out.",
     poster: "assets/posters/phone-megaphone-announcement.jpg",
     preview: "assets/previews/phone-megaphone-announcement.mp4",
@@ -34,7 +38,8 @@ window.MEICO_PROJECTS = [
   },
   {
     title: "Search Trends",
-    category: "Search marketing",
+    category: "Icon",
+    categories: ["Icon"],
     description: "A visual story about search visibility, the numbers behind it, and the next signal.",
     poster: "assets/posters/search-analytics-trend-pen.jpg",
     preview: "assets/previews/search-analytics-trend-pen.mp4",
@@ -42,7 +47,8 @@ window.MEICO_PROJECTS = [
   },
   {
     title: "Rocket Launch",
-    category: "Product launch",
+    category: "Icon",
+    categories: ["Icon"],
     description: "A bold, upbeat launch film that carries the idea from countdown to liftoff.",
     poster: "assets/posters/rocket-launch.jpg",
     preview: "assets/previews/rocket-launch.mp4",
