@@ -4,7 +4,7 @@ A responsive, dependency-free portfolio based on the supplied Squarespace refere
 
 ## Update the portfolio
 
-Edit `projects.js` to change project titles, descriptions, poster paths, and video paths. The six supplied MP4s and their poster stills are bundled locally in `assets/videos/` and `assets/posters/`. The full videos have a permanent, repeated diagonal “MEICO STUDIO” watermark burned into every frame. Clean poster thumbnails and lightweight hover previews are separate; posters are stills from 4.75 seconds.
+Edit `projects.js` to change project titles, descriptions, poster paths, and video paths. The six supplied MP4s and their poster stills are bundled locally in `assets/videos/` and `assets/posters/`. The original full videos, poster thumbnails, and lightweight hover previews are all clean and contain no added watermark; posters are stills from 4.75 seconds.
 
 The layout follows the reference: a spacious desktop header, a three-column square gallery, centered titles, and a compact centered footer. The gallery stays three columns through tablet widths and switches to one column on phones. The mobile navigation opens as a translucent full-screen menu. Project tiles play muted previews on hover-capable devices; selecting a tile or title opens the full player.
 
