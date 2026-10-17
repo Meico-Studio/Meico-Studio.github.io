@@ -53,5 +53,15 @@ window.MEICO_PROJECTS = [
     poster: "assets/posters/rocket-launch.jpg",
     preview: "assets/previews/rocket-launch.mp4",
     video: "assets/videos/rocket-launch.mp4"
+  },
+  {
+    title: "Portugal Fans",
+    category: "Character",
+    categories: ["Character"],
+    description: "A lively character animation celebrating the color and energy of Portugal supporters.",
+    poster: "assets/posters/portugal-fans-celebration.jpg",
+    preview: "assets/previews/portugal-fans-celebration.mp4",
+    video: "assets/videos/portugal-fans-celebration.mp4",
+    mediaFit: "contain"
   }
 ];

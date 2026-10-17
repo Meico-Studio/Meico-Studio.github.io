@@ -73,7 +73,7 @@
 
   function renderProjects() {
     grid.innerHTML = projects.map((project, index) => `
-      <article class="project-card" data-index="${index}">
+      <article class="project-card${project.mediaFit === "contain" ? " project-card--contain-media" : ""}" data-index="${index}">
         <button class="project-media" type="button" aria-label="Play ${escapeHTML(project.title)}">
           <span class="media-frame">
             <img class="project-poster" src="${escapeHTML(project.poster)}" alt="${escapeHTML(project.title)} film still" loading="${index < 3 ? "eager" : "lazy"}" />

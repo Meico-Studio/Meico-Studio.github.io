@@ -58,6 +58,7 @@ button { border: 0; }
 .project-media { position: relative; display: block; width: 100%; padding: 0; overflow: hidden; background: #fff; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent; }
 .media-frame { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid var(--line); background: #fff; }
 .project-poster, .project-preview { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.2,.65,.25,1), opacity .25s ease; }
+.project-card--contain-media .project-poster, .project-card--contain-media .project-preview { object-fit: contain; }
 .project-poster { z-index: 1; }
 .project-preview { z-index: 2; opacity: 0; }
 .project-card:hover .project-poster, .project-card:focus-within .project-poster { transform: scale(1.015); }
