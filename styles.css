@@ -114,7 +114,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #272727; outline-offs
   .social-link, .social-link svg { width: 21px; height: 21px; }
   .work-section { padding-top: 22px; }
   .project-grid { column-gap: 22px; row-gap: 49px; }
-  .work-filters { gap: 22px; margin-bottom: 24px; }
+  .work-filters { column-gap: 22px; row-gap: 2px; margin-bottom: 24px; }
   .project-title-row { margin-top: 10px; }
   .project-title { font-size: 16px; }
   .site-footer { min-height: 280px; gap: 24px; padding-top: 60px; padding-bottom: 34px; }
