@@ -108,8 +108,9 @@ html.has-scroll-reveal .project-card.is-revealed .project-title-row, html.has-sc
 .delivery-label { color: var(--muted); font-size: 10px; }
 .delivery-format { font-size: 12px; }
 .delivery-request, .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); font-size: 12px; }
-.delivery-request span, .text-link span { transition: transform .2s ease; }
-.delivery-request:hover span, .text-link:hover span { transform: translate(3px, -3px); }
+.external-arrow { width: 13px; height: 13px; flex: 0 0 auto; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+.delivery-request:hover .external-arrow, .text-link:hover .external-arrow, .footer-cta:hover .external-arrow { transform: translate(3px, -3px); }
+.footer-cta .external-arrow { width: 15px; height: 15px; margin-left: 3px; vertical-align: -2px; }
 
 .section-intro { max-width: 720px; margin: 0 auto clamp(38px, 6vw, 76px); text-align: center; }
 .eyebrow { margin: 0 0 15px; color: #84837f; font-size: 10px; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; }
