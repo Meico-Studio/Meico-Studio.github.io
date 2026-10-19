@@ -5,7 +5,6 @@
   const dialog = document.querySelector("#video-dialog");
   const dialogVideo = document.querySelector("#dialog-video");
   const dialogSvg = document.querySelector("#dialog-svg");
-  const dialogDelivery = document.querySelector("#dialog-delivery");
   const closeButton = document.querySelector(".close-dialog");
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.querySelector("#site-nav");
@@ -80,7 +79,6 @@
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-  const projectShareUrl = (project) => `https://meico-studio.github.io/projects/${projectSlug(project)}/`;
   const projectHistoryUrl = (project) => window.location.protocol === "file:"
     ? `?project=${encodeURIComponent(projectSlug(project))}`
     : `/projects/${projectSlug(project)}/`;
@@ -229,16 +227,6 @@
     document.querySelector("#dialog-meta").textContent = [project.category, project.year].filter(Boolean).join(" · ");
     document.querySelector("#dialog-description").textContent = project.description;
     const isSvg = project.mediaType === "svg";
-    const formats = isSvg ? ["Animated SVG"] : ["MP4 video"];
-    const shareUrl = projectShareUrl(project);
-    const emailSubject = `Project inquiry — ${project.title} | Meico Studio`;
-    const emailBody = `Hi Meico Studio,\n\nI’m interested in the ${project.title} project.\n\n${shareUrl}`;
-    const emailHref = `mailto:info.meicostudio@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    const requestSubject = encodeURIComponent(`Editable Source Files Inquiry — ${project.title} | Meico Studio`);
-    dialogDelivery.innerHTML = `
-      <div class="delivery-current"><span class="delivery-label">Included preview</span><span class="delivery-format">${formats.map(escapeHTML).join(" · ")}</span></div>
-      <div class="delivery-actions"><a class="project-share-link" href="${escapeHTML(emailHref)}">Email this project</a><a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}">Ask about editable files</a></div>
-    `;
     dialogSvg.hidden = !isSvg;
     dialogVideo.hidden = isSvg;
     dialogVideo.pause();
