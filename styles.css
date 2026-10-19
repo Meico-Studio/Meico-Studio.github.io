@@ -112,12 +112,12 @@ html.has-scroll-reveal .project-card.is-revealed .project-title-row, html.has-sc
 
 .section-intro { max-width: 720px; margin: 0 auto clamp(38px, 6vw, 76px); text-align: center; }
 .eyebrow { margin: 0 0 15px; color: #84837f; font-size: 10px; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; }
-.section-intro h2, .section-heading h2, .formats-copy h2, .about-content h2 { margin: 0; font-size: clamp(36px, 5.3vw, 70px); font-weight: 400; letter-spacing: 0; line-height: 1.04; }
+.section-intro h2, .section-heading h2, .formats-copy h2 { margin: 0; font-size: clamp(36px, 5.3vw, 70px); font-weight: 400; letter-spacing: 0; line-height: 1.04; }
 .section-intro h2 span { color: #a09f9b; }
 .section-lede { max-width: 430px; margin: 20px auto 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
 .editorial-section { padding: clamp(82px, 11vw, 150px) var(--page-gutter); }
-.section-heading, .formats-copy, .about-section { max-width: 1180px; margin-right: auto; margin-left: auto; }
-.section-heading h2, .formats-copy h2, .about-content h2 { font-size: clamp(34px, 4.2vw, 56px); }
+.section-heading, .formats-copy { max-width: 1180px; margin-right: auto; margin-left: auto; }
+.section-heading h2, .formats-copy h2 { font-size: clamp(34px, 4.2vw, 56px); }
 .capabilities-section { background: #f7f7f5; }
 .capabilities-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: clamp(28px, 5vw, 72px); max-width: 1180px; margin: 62px auto 0; }
 .capability-card { padding-top: 17px; border-top: 1px solid #deddd9; }
@@ -141,9 +141,6 @@ html.has-scroll-reveal .project-card.is-revealed .project-title-row, html.has-sc
 .process-list li { padding-top: 17px; border-top: 1px solid #deddd9; }
 .process-list li > span { color: #999894; font-size: 10px; }
 .process-list h3 { margin-top: 26px; }
-.about-section > .eyebrow { margin-bottom: 22px; }
-.about-content { display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: clamp(40px, 9vw, 120px); }
-.about-content > p { max-width: 430px; margin: 0 0 4px; color: var(--muted); font-size: 14px; line-height: 1.8; }
 .footer-cta { display: grid; gap: 7px; color: #85847f; font-size: 12px; }
 .footer-cta span { color: var(--ink); font-size: 17px; }
 .dialog-open, .menu-open { overflow: hidden; }
@@ -178,7 +175,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid #272727; outline-offs
   .formats-section { grid-template-columns: 1fr; }
   .section-heading--row { align-items: start; flex-direction: column; }
   .process-list { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 35px; }
-  .about-content { grid-template-columns: 1fr; gap: 25px; }
 }
 
 @media (max-width: 640px) {

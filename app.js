@@ -290,7 +290,7 @@
         else link.removeAttribute("aria-current");
       });
     }, { rootMargin: "-20% 0px -65% 0px", threshold: [0, 0.1, 0.35] });
-    ["work", "capabilities", "process", "about", "contact"].forEach((id) => {
+    ["work", "capabilities", "process", "contact"].forEach((id) => {
       const section = document.getElementById(id);
       if (section) navObserver.observe(section);
     });
