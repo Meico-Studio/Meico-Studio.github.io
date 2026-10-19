@@ -4,6 +4,7 @@
   const filters = document.querySelector("#work-filters");
   const dialog = document.querySelector("#video-dialog");
   const dialogVideo = document.querySelector("#dialog-video");
+  const dialogSvg = document.querySelector("#dialog-svg");
   const closeButton = document.querySelector(".close-dialog");
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.querySelector("#site-nav");
@@ -33,7 +34,7 @@
         const card = entry.target;
         const project = projects[Number(card.dataset.index)];
         const preview = card.querySelector(".project-preview");
-        if (project && !preview.src) {
+        if (project && project.mediaType !== "svg" && !preview.src) {
           preview.preload = "auto";
           preview.src = project.preview || project.video;
           preview.load();
@@ -111,11 +112,13 @@
 
   function renderProjects() {
     grid.innerHTML = projects.map((project, index) => `
-      <article class="project-card${project.mediaFit === "contain" ? " project-card--contain-media" : ""}" data-index="${index}">
-        <button class="project-media" type="button" aria-label="Play ${escapeHTML(project.title)}">
+      <article class="project-card${project.mediaFit === "contain" ? " project-card--contain-media" : ""}${project.mediaType === "svg" ? " project-card--svg" : ""}" data-index="${index}">
+        <button class="project-media" type="button" aria-label="${project.mediaType === "svg" ? "View" : "Play"} ${escapeHTML(project.title)}">
           <span class="media-frame">
-            <img class="project-poster" src="${escapeHTML(project.poster)}" alt="${escapeHTML(project.title)} film still" loading="${index < 3 ? "eager" : "lazy"}" decoding="async" fetchpriority="${index === 0 ? "high" : "auto"}" />
-            <video class="project-preview" muted playsinline loop preload="none" aria-hidden="true"></video>
+            <img class="project-poster" src="${escapeHTML(project.poster)}" alt="${escapeHTML(project.title)} project artwork" loading="${index < 3 ? "eager" : "lazy"}" decoding="async" fetchpriority="${index === 0 ? "high" : "auto"}" />
+            ${project.mediaType === "svg"
+              ? `<img class="project-preview" data-animation-src="${escapeHTML(project.preview)}" alt="" aria-hidden="true" />`
+              : `<video class="project-preview" muted playsinline loop preload="none" aria-hidden="true"></video>`}
           </span>
         </button>
         <div class="project-title-row">
@@ -136,8 +139,21 @@
 
       const startPreview = () => {
         if (!hoverAvailable.matches || reducedMotion.matches) return;
-        if (activePreview && activePreview !== preview) stopPreview(activePreview);
+        if (activePreview && activePreview !== preview) {
+          stopPreview(activePreview);
+          activePreview.closest(".project-card")?.classList.remove("is-previewing");
+        }
         activePreview = preview;
+        if (project.mediaType === "svg") {
+          if (!preview.src) {
+            preview.onload = () => {
+              if (activePreview === preview) card.classList.add("is-previewing");
+            };
+            preview.src = preview.dataset.animationSrc || project.preview;
+          }
+          if (preview.complete && preview.naturalWidth) card.classList.add("is-previewing");
+          return;
+        }
         if (!preview.src) {
           preview.preload = "auto";
           preview.src = project.preview || project.video;
@@ -162,9 +178,15 @@
     });
   }
 
-  function stopPreview(video) {
-    video.pause();
-    try { video.currentTime = 0; } catch (_) { /* Metadata may not have loaded yet. */ }
+  function stopPreview(media) {
+    if (media instanceof HTMLVideoElement) {
+      media.pause();
+      try { media.currentTime = 0; } catch (_) { /* Metadata may not have loaded yet. */ }
+      return;
+    }
+    media.onload = null;
+    media.onerror = null;
+    media.removeAttribute("src");
   }
 
   function openProject(project) {
@@ -177,14 +199,27 @@
     document.querySelector("#dialog-title").textContent = project.title;
     document.querySelector("#dialog-meta").textContent = [project.category, project.year].filter(Boolean).join(" · ");
     document.querySelector("#dialog-description").textContent = project.description;
+    const isSvg = project.mediaType === "svg";
+    dialogSvg.hidden = !isSvg;
+    dialogVideo.hidden = isSvg;
     dialogVideo.pause();
-    dialogVideo.src = project.video;
-    dialogVideo.poster = project.poster;
-    dialogVideo.load();
+    if (isSvg) {
+      dialogVideo.removeAttribute("src");
+      dialogVideo.load();
+      dialogSvg.alt = project.title;
+      dialogSvg.src = project.video;
+    } else {
+      dialogSvg.removeAttribute("src");
+      dialogVideo.src = project.video;
+      dialogVideo.poster = project.poster;
+      dialogVideo.load();
+    }
     dialog.showModal();
     document.body.classList.add("dialog-open");
-    const playRequest = dialogVideo.play();
-    if (playRequest && typeof playRequest.catch === "function") playRequest.catch(() => {});
+    if (!isSvg) {
+      const playRequest = dialogVideo.play();
+      if (playRequest && typeof playRequest.catch === "function") playRequest.catch(() => {});
+    }
   }
 
   function closeDialog() {
@@ -194,8 +229,11 @@
 
   dialog.addEventListener("close", () => {
     dialogVideo.pause();
+    dialogVideo.hidden = false;
     dialogVideo.removeAttribute("src");
     dialogVideo.load();
+    dialogSvg.hidden = true;
+    dialogSvg.removeAttribute("src");
     document.body.classList.remove("dialog-open");
   });
   closeButton.addEventListener("click", closeDialog);

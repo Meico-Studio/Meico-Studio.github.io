@@ -241,5 +241,41 @@ window.MEICO_PROJECTS = [
     "poster": "assets/posters/eye-blink.jpg",
     "preview": "assets/previews/eye-blink.mp4",
     "video": "assets/videos/eye-blink.mp4"
+  },
+  {
+    "title": "PDF Export",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "An animated classic PDF document icon with an export flourish.",
+    "poster": "assets/posters/pdf-export.svg",
+    "preview": "assets/animations/pdf-export.svg",
+    "video": "assets/animations/pdf-export.svg",
+    "mediaType": "svg"
+  },
+  {
+    "title": "Locked PDF",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A secure PDF animation built around a compact padlock.",
+    "poster": "assets/posters/document-lock-pdf.svg",
+    "preview": "assets/animations/document-lock-pdf.svg",
+    "video": "assets/animations/document-lock-pdf.svg",
+    "mediaType": "svg"
+  },
+  {
+    "title": "PDF Progress",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A PDF page with an animated progress track and status marker.",
+    "poster": "assets/posters/pdf-progress.svg",
+    "preview": "assets/animations/pdf-progress.svg",
+    "video": "assets/animations/pdf-progress.svg",
+    "mediaType": "svg"
   }
 ];
