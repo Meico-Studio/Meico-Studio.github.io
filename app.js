@@ -205,7 +205,7 @@
     const requestSubject = encodeURIComponent(`Editable Source Files Inquiry — ${project.title} | Meico Studio`);
     dialogDelivery.innerHTML = `
       <div class="delivery-current"><span class="delivery-label">Included preview</span><span class="delivery-format">${formats.map(escapeHTML).join(" · ")}</span></div>
-      <a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}">Ask about editable files <span aria-hidden="true">↗</span></a>
+      <a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}" target="_blank" rel="noopener noreferrer">Ask about editable files <span aria-hidden="true">↗</span></a>
     `;
     dialogSvg.hidden = !isSvg;
     dialogVideo.hidden = isSvg;
