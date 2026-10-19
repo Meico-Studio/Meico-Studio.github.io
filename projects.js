@@ -1,67 +1,157 @@
 /* Local portfolio media supplied for Meico Studio. Update this list to add or edit projects. */
 window.MEICO_PROJECTS = [
   {
-    title: "Analytics Dashboard",
-    category: "Illustration",
-    categories: ["Illustration"],
-    description: "A motion design piece built around turning live data into clear visual signals.",
-    poster: "assets/posters/analytics-dashboard.jpg",
-    preview: "assets/previews/analytics-dashboard.mp4",
-    video: "assets/videos/analytics-dashboard.mp4"
+    "title": "Shopping Bag",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A bright product animation built around a simple shopping essential.",
+    "poster": "assets/posters/shopping-bag.jpg",
+    "preview": "assets/previews/shopping-bag.mp4",
+    "video": "assets/videos/shopping-bag.mp4"
   },
   {
-    title: "Code Window",
-    category: "Illustration",
-    categories: ["Illustration"],
-    description: "A typographic interface study for tools made by people who build for the web.",
-    poster: "assets/posters/code-window.jpg",
-    preview: "assets/previews/code-window.mp4",
-    video: "assets/videos/code-window.mp4"
+    "title": "Code Brackets",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A clean looping code symbol for a digital first impression.",
+    "poster": "assets/posters/code-brackets.jpg",
+    "preview": "assets/previews/code-brackets.mp4",
+    "video": "assets/videos/code-brackets.mp4"
   },
   {
-    title: "AI Circuit",
-    category: "Icon",
-    categories: ["Icon"],
-    description: "An animated concept exploring artificial intelligence and connected systems.",
-    poster: "assets/posters/ai-brain-circuit.jpg",
-    preview: "assets/previews/ai-brain-circuit.mp4",
-    video: "assets/videos/ai-brain-circuit.mp4"
+    "title": "50K Followers",
+    "category": "Badge",
+    "categories": [
+      "Badge"
+    ],
+    "description": "A celebratory social milestone brought to life in motion.",
+    "poster": "assets/posters/50k-followers.jpg",
+    "preview": "assets/previews/50k-followers.mp4",
+    "video": "assets/videos/50k-followers.mp4"
   },
   {
-    title: "Phone Ad",
-    category: "Illustration",
-    categories: ["Illustration"],
-    description: "A mobile-first announcement creative built to make a product update stand out.",
-    poster: "assets/posters/phone-megaphone-announcement.jpg",
-    preview: "assets/previews/phone-megaphone-announcement.mp4",
-    video: "assets/videos/phone-megaphone-announcement.mp4"
+    "title": "Analytics Dashboard",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A motion study that turns live data into clear visual signals.",
+    "poster": "assets/posters/analytics-dashboard.jpg",
+    "preview": "assets/previews/analytics-dashboard.mp4",
+    "video": "assets/videos/analytics-dashboard.mp4"
   },
   {
-    title: "Search Trends",
-    category: "Icon",
-    categories: ["Icon"],
-    description: "A visual story about search visibility, the numbers behind it, and the next signal.",
-    poster: "assets/posters/search-analytics-trend-pen.jpg",
-    preview: "assets/previews/search-analytics-trend-pen.mp4",
-    video: "assets/videos/search-analytics-trend-pen.mp4"
+    "title": "Rocket Launch",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A compact launch sequence with a playful burst of energy.",
+    "poster": "assets/posters/rocket-launch.jpg",
+    "preview": "assets/previews/rocket-launch.mp4",
+    "video": "assets/videos/rocket-launch.mp4"
   },
   {
-    title: "Rocket Launch",
-    category: "Icon",
-    categories: ["Icon"],
-    description: "A bold, upbeat launch film that carries the idea from countdown to liftoff.",
-    poster: "assets/posters/rocket-launch.jpg",
-    preview: "assets/previews/rocket-launch.mp4",
-    video: "assets/videos/rocket-launch.mp4"
+    "title": "Shopping Cart",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A crisp commerce icon animated for a smooth, useful interface.",
+    "poster": "assets/posters/shopping-cart.jpg",
+    "preview": "assets/previews/shopping-cart.mp4",
+    "video": "assets/videos/shopping-cart.mp4"
   },
   {
-    title: "Portugal Fans",
-    category: "Character",
-    categories: ["Character"],
-    description: "A lively character animation celebrating the color and energy of Portugal supporters.",
-    poster: "assets/posters/portugal-fans-celebration.jpg",
-    preview: "assets/previews/portugal-fans-celebration.mp4",
-    video: "assets/videos/portugal-fans-celebration.mp4",
-    mediaFit: "contain"
+    "title": "Notification Bell",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A small notification moment designed to catch the eye.",
+    "poster": "assets/posters/notification-bell.jpg",
+    "preview": "assets/previews/notification-bell.mp4",
+    "video": "assets/videos/notification-bell.mp4"
+  },
+  {
+    "title": "Bug Hunt",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A playful magnifier animation for finding and fixing bugs.",
+    "poster": "assets/posters/bug-hunt.jpg",
+    "preview": "assets/previews/bug-hunt.mp4",
+    "video": "assets/videos/bug-hunt.mp4"
+  },
+  {
+    "title": "Hub Pendulum",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A rhythmic network animation connecting motion and structure.",
+    "poster": "assets/posters/hub-pendulum.jpg",
+    "preview": "assets/previews/hub-pendulum.mp4",
+    "video": "assets/videos/hub-pendulum.mp4"
+  },
+  {
+    "title": "Voice Call",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "An incoming call brought to life with a clear motion cue.",
+    "poster": "assets/posters/voice-call.jpg",
+    "preview": "assets/previews/voice-call.mp4",
+    "video": "assets/videos/voice-call.mp4"
+  },
+  {
+    "title": "Video Call",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A friendly video call animation for a connected experience.",
+    "poster": "assets/posters/video-call.jpg",
+    "preview": "assets/previews/video-call.mp4",
+    "video": "assets/videos/video-call.mp4"
+  },
+  {
+    "title": "Portugal Fans",
+    "category": "Character",
+    "categories": [
+      "Character"
+    ],
+    "description": "A lively character animation celebrating Portugal supporters.",
+    "poster": "assets/posters/portugal-fans.jpg",
+    "preview": "assets/previews/portugal-fans.mp4",
+    "video": "assets/videos/portugal-fans.mp4"
+  },
+  {
+    "title": "PDF Lock",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A secure document icon with a compact motion finish.",
+    "poster": "assets/posters/pdf-lock.jpg",
+    "preview": "assets/previews/pdf-lock.mp4",
+    "video": "assets/videos/pdf-lock.mp4"
+  },
+  {
+    "title": "30% Badge",
+    "category": "Badge",
+    "categories": [
+      "Badge"
+    ],
+    "description": "A bold discount badge that lands with a quick animated accent.",
+    "poster": "assets/posters/30-percent-badge.jpg",
+    "preview": "assets/previews/30-percent-badge.mp4",
+    "video": "assets/videos/30-percent-badge.mp4"
   }
 ];
