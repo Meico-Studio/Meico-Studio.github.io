@@ -153,5 +153,60 @@ window.MEICO_PROJECTS = [
     "poster": "assets/posters/30-percent-badge.jpg",
     "preview": "assets/previews/30-percent-badge.mp4",
     "video": "assets/videos/30-percent-badge.mp4"
+  },
+  {
+    "title": "Code Window",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A refined animated code window for digital product storytelling.",
+    "poster": "assets/posters/code-window.jpg",
+    "preview": "assets/previews/code-window.mp4",
+    "video": "assets/videos/code-window.mp4"
+  },
+  {
+    "title": "Code Editor",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A focused editor interface brought to life with precise motion.",
+    "poster": "assets/posters/code-editor.jpg",
+    "preview": "assets/previews/code-editor.mp4",
+    "video": "assets/videos/code-editor.mp4"
+  },
+  {
+    "title": "Security Shield",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A bold shield animation representing digital protection.",
+    "poster": "assets/posters/security-shield.jpg",
+    "preview": "assets/previews/security-shield.mp4",
+    "video": "assets/videos/security-shield.mp4"
+  },
+  {
+    "title": "Malware Alert",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A clear alert animation for a malware protection concept.",
+    "poster": "assets/posters/malware-alert.jpg",
+    "preview": "assets/previews/malware-alert.mp4",
+    "video": "assets/videos/malware-alert.mp4"
+  },
+  {
+    "title": "Document Lock",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A secure document symbol with a polished motion finish.",
+    "poster": "assets/posters/document-lock.jpg",
+    "preview": "assets/previews/document-lock.mp4",
+    "video": "assets/videos/document-lock.mp4"
   }
 ];

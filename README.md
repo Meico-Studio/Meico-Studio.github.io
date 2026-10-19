@@ -4,7 +4,7 @@ A responsive, dependency-free portfolio based on the supplied Squarespace refere
 
 ## Update the portfolio
 
-Edit `projects.js` to change project titles, categories, descriptions, poster paths, and video paths. Project categories generate the work filters automatically. The 14 project videos are bundled locally under `assets/videos/`; each is 960×540 (16:9). Widescreen posters are extracted from the clips at 4.75 seconds, and six-second, silent 60 fps hover previews are stored in `assets/previews/` and warmed only as projects approach the viewport.
+Edit `projects.js` to change project titles, categories, descriptions, poster paths, and video paths. Project categories generate the work filters automatically. The 19 project videos are bundled locally under `assets/videos/`; each is 960×540 (16:9). Widescreen posters are extracted from the clips at 4.75 seconds, and six-second, silent 60 fps hover previews are stored in `assets/previews/` and warmed only as projects approach the viewport.
 
 The layout uses a spacious desktop header, a three-column 16:9 gallery, centered titles, and a compact centered footer. The gallery stays three columns through tablet widths and switches to one column on phones. The mobile navigation opens as a translucent full-screen menu. Project tiles play muted previews on hover-capable devices; selecting a tile or title opens the full-resolution video in the player.
 
