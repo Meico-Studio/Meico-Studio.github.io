@@ -5,6 +5,7 @@
   const dialog = document.querySelector("#video-dialog");
   const dialogVideo = document.querySelector("#dialog-video");
   const dialogSvg = document.querySelector("#dialog-svg");
+  const dialogDelivery = document.querySelector("#dialog-delivery");
   const closeButton = document.querySelector(".close-dialog");
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.querySelector("#site-nav");
@@ -200,6 +201,12 @@
     document.querySelector("#dialog-meta").textContent = [project.category, project.year].filter(Boolean).join(" · ");
     document.querySelector("#dialog-description").textContent = project.description;
     const isSvg = project.mediaType === "svg";
+    const formats = isSvg ? ["Animated SVG"] : ["MP4 video"];
+    const requestSubject = encodeURIComponent(`Source files — ${project.title}`);
+    dialogDelivery.innerHTML = `
+      <div class="delivery-current"><span class="delivery-label">Included preview</span><span class="delivery-format">${formats.map(escapeHTML).join(" · ")}</span></div>
+      <a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}">Ask about editable files <span aria-hidden="true">↗</span></a>
+    `;
     dialogSvg.hidden = !isSvg;
     dialogVideo.hidden = isSvg;
     dialogVideo.pause();
@@ -270,6 +277,25 @@
   setMenuOpen(false);
 
   document.querySelector("#copyright-year").textContent = new Date().getFullYear();
+
+  const sectionLinks = Array.from(document.querySelectorAll('.nav-link[href^="#"]'));
+  if ("IntersectionObserver" in window) {
+    const navObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      sectionLinks.forEach((link) => {
+        const current = link.hash === `#${visible.target.id}`;
+        link.classList.toggle("is-current", current);
+        if (current) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    }, { rootMargin: "-20% 0px -65% 0px", threshold: [0, 0.1, 0.35] });
+    ["work", "capabilities", "process", "about", "contact"].forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) navObserver.observe(section);
+    });
+  }
+
   renderFilters();
   renderProjects();
 })();

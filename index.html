@@ -7,9 +7,9 @@
     <meta name="description" content="Selected films and moving images by Meico Studio." />
     <title>Meico Studio — Film &amp; Motion</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <link rel="stylesheet" href="styles.css?v=svg-projects-20261019" />
-    <script src="projects.js?v=svg-projects-20261019" defer></script>
-    <script src="app.js?v=svg-projects-20261019" defer></script>
+    <link rel="stylesheet" href="styles.css?v=studio-sections-20261019" />
+    <script src="projects.js?v=studio-sections-20261019" defer></script>
+    <script src="app.js?v=studio-sections-20261019" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#work">Skip to work</a>
@@ -24,6 +24,9 @@
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <div class="nav-links">
           <a class="nav-link is-current" href="#work">Work</a>
+          <a class="nav-link" href="#capabilities">Capabilities</a>
+          <a class="nav-link" href="#process">Process</a>
+          <a class="nav-link" href="#about">About</a>
           <a class="nav-link" href="#contact">Contact</a>
         </div>
         <div class="nav-social" aria-label="Social links">
@@ -40,8 +43,59 @@
     <main>
       <section class="work-section" id="work" aria-labelledby="work-heading">
         <h1 class="sr-only" id="work-heading">Selected work</h1>
+        <div class="section-intro">
+          <p class="eyebrow">Independent motion design</p>
+          <h2>Small moments.<br /><span>Made to move.</span></h2>
+          <p class="section-lede">A growing collection of expressive animation for digital products, interfaces, and brands.</p>
+        </div>
         <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by category"></div>
         <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="capabilities-section editorial-section" id="capabilities" aria-labelledby="capabilities-heading">
+        <div class="section-heading">
+          <p class="eyebrow">What I make</p>
+          <h2 id="capabilities-heading">Motion, made<br />for every screen.</h2>
+        </div>
+        <div class="capabilities-grid">
+          <article class="capability-card"><span class="capability-index">01</span><h3>Product motion</h3><p>Interface moments, product explainers, and crisp animated illustrations that make digital experiences feel alive.</p></article>
+          <article class="capability-card"><span class="capability-index">02</span><h3>Icons &amp; systems</h3><p>Consistent icon families and reusable motion language, designed to stay clear at small sizes.</p></article>
+          <article class="capability-card"><span class="capability-index">03</span><h3>Character &amp; brand</h3><p>Distinctive characters, launch moments, and visual identities with a little more personality.</p></article>
+        </div>
+      </section>
+
+      <section class="formats-section editorial-section" aria-labelledby="formats-heading">
+        <div class="formats-copy">
+          <p class="eyebrow">Project handoff</p>
+          <h2 id="formats-heading">The right format<br />for the next step.</h2>
+          <p>Every project includes a preview-ready delivery. Source formats depend on how the piece is built; ask about an editable handoff when you get in touch.</p>
+          <a class="text-link" href="mailto:info.meicostudio@gmail.com?subject=Project%20file%20formats">Ask about project files <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="format-list" aria-label="Possible delivery formats">
+          <div class="format-item"><span class="format-mark">MP4</span><div><h3>Motion video</h3><p>Ready-to-share video exports</p></div><span class="format-status">In portfolio</span></div>
+          <div class="format-item"><span class="format-mark format-mark--svg">SVG</span><div><h3>Animated vector</h3><p>Scalable, lightweight motion</p></div><span class="format-status">Selected work</span></div>
+          <div class="format-item"><span class="format-mark format-mark--ae">Ae</span><div><h3>After Effects</h3><p>Editable project handoff</p></div><span class="format-status">Ask per project</span></div>
+          <div class="format-item"><span class="format-mark format-mark--json">{ }</span><div><h3>Lottie JSON</h3><p>For web and app interfaces</p></div><span class="format-status">Ask per project</span></div>
+          <div class="format-item"><span class="format-mark format-mark--edit">✳</span><div><h3>Editable artwork</h3><p>Source vectors and assets</p></div><span class="format-status">Ask per project</span></div>
+        </div>
+      </section>
+
+      <section class="process-section editorial-section" id="process" aria-labelledby="process-heading">
+        <div class="section-heading section-heading--row">
+          <div><p class="eyebrow">A considered process</p><h2 id="process-heading">From first thought<br />to final frame.</h2></div>
+          <p class="process-note">A clear, collaborative path keeps the work focused and the finish polished.</p>
+        </div>
+        <ol class="process-list">
+          <li><span>01</span><h3>Discover</h3><p>Align on the audience, the message, and where the motion will live.</p></li>
+          <li><span>02</span><h3>Design</h3><p>Find the visual direction, timing, and details before animation begins.</p></li>
+          <li><span>03</span><h3>Animate</h3><p>Build and refine the motion with care for rhythm, clarity, and craft.</p></li>
+          <li><span>04</span><h3>Deliver</h3><p>Prepare the final export and discuss source formats for your workflow.</p></li>
+        </ol>
+      </section>
+
+      <section class="about-section editorial-section" id="about" aria-labelledby="about-heading">
+        <p class="eyebrow">A little about Meico</p>
+        <div class="about-content"><h2 id="about-heading">Thoughtful motion<br />for things that matter.</h2><p>Meico Studio is an independent motion design practice creating approachable, useful, and characterful animation. From a single interface icon to a complete visual story, every detail is made to communicate clearly and feel good to watch.</p></div>
       </section>
     </main>
 
@@ -55,7 +109,8 @@
         </a>
       </div>
       <a class="footer-email" href="mailto:info.meicostudio@gmail.com">info.meicostudio@gmail.com</a>
-      <p class="footer-caption" >Independent film &amp; visual storytelling</p>
+      <p class="footer-caption">Independent motion design &amp; visual storytelling</p>
+      <a class="footer-cta" href="mailto:info.meicostudio@gmail.com?subject=Let%E2%80%99s%20make%20something%20move">Have a project in mind? <span>Let’s talk ↗</span></a>
       <p class="copyright">© <span id="copyright-year"></span> Meico Studio</p>
     </footer>
 
@@ -74,6 +129,7 @@
         <img id="dialog-svg" alt="" hidden />
       </div>
       <p class="dialog-description" id="dialog-description"></p>
+      <div class="dialog-delivery" id="dialog-delivery"></div>
     </dialog>
   </body>
 </html>
