@@ -45,6 +45,23 @@ button { border: 0; }
 .vimeo-link svg { width: 19px; height: 19px; fill: currentColor; stroke: none; }
 .menu-toggle { display: none; }
 
+.hero-section { background: #f2f6fa; }
+.hero-inner { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); align-items: center; gap: clamp(28px, 5vw, 72px); width: min(100%, 1440px); min-height: clamp(360px, 39vw, 520px); margin: 0 auto; padding: 30px max(var(--page-gutter), calc((100vw - 1320px) / 2)); }
+.hero-copy { position: relative; z-index: 1; padding: 28px 0; }
+.hero-kicker { margin: 0 0 13px; color: #777773; font-size: 13px; line-height: 1.4; }
+.hero-copy h1 { margin: 0; font-size: clamp(42px, 5vw, 66px); font-weight: 400; letter-spacing: 0; line-height: 1.08; }
+.hero-copy h1 span { color: #777773; }
+.hero-lede { margin: 11px 0 0; color: #777773; font-size: clamp(16px, 1.8vw, 21px); line-height: 1.4; }
+.hero-link { display: inline-flex; margin-top: 24px; padding-bottom: 3px; border-bottom: 1px solid #777773; color: #323638; font-size: 12px; transition: opacity .18s ease; }
+.hero-link:hover { opacity: .58; }
+.hero-art { display: flex; min-width: 0; align-items: center; justify-content: center; }
+.hero-art svg { display: block; width: min(100%, 620px); max-height: 430px; overflow: visible; }
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 10px; min-height: 0; padding-top: 42px; padding-bottom: 14px; }
+  .hero-copy { padding: 0; }
+  .hero-copy h1 { font-size: clamp(42px, 6vw, 56px); }
+  .hero-art svg { width: min(100%, 500px); max-height: 330px; }
+}
 .work-section { padding: clamp(35px, 3.4vw, 49px) var(--page-gutter) 0; }
 .work-section::after { display: block; height: clamp(64px, 7vw, 96px); content: ""; }
 .work-filters { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: clamp(18px, 2.4vw, 32px); margin: 0 0 clamp(24px, 2.6vw, 36px); }
@@ -161,6 +178,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #272727; outline-offs
 
 @media (min-width: 1500px) {
   .site-header, .work-section, .site-footer { padding-right: max(var(--page-gutter), calc((100vw - 1440px) / 2)); padding-left: max(var(--page-gutter), calc((100vw - 1440px) / 2)); }
+  .hero-inner { padding-right: max(var(--page-gutter), calc((100vw - 1320px) / 2)); padding-left: max(var(--page-gutter), calc((100vw - 1320px) / 2)); }
 }
 
 @media (max-width: 800px) {
@@ -177,6 +195,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #272727; outline-offs
   .nav-link::after { display: none; }
   .nav-social { position: absolute; bottom: 34px; left: 50%; gap: 22px; transform: translateX(-50%); }
   .social-link, .social-link svg { width: 21px; height: 21px; }
+  .hero-inner { min-height: 0; gap: 10px; }
   .work-section { padding-top: 22px; }
   .project-grid { column-gap: 22px; row-gap: 49px; }
   .work-filters { column-gap: 22px; row-gap: 2px; margin-bottom: 24px; }
@@ -192,6 +211,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid #272727; outline-offs
 @media (max-width: 640px) {
   :root { --page-gutter: clamp(22px, 7.6vw, 32px); }
   .site-header { height: 110px; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 2px; min-height: 0; padding-top: 36px; padding-bottom: 17px; }
+  .hero-copy { padding: 9px 0 0; }
+  .hero-kicker { margin-bottom: 11px; font-size: 12px; }
+  .hero-copy h1 { font-size: clamp(40px, 10vw, 54px); }
+  .hero-lede { margin-top: 8px; font-size: 16px; }
+  .hero-link { margin-top: 17px; }
+  .hero-art svg { width: min(100%, 370px); max-height: 250px; }
   .work-section { padding-top: 22px; }
   .project-grid { grid-template-columns: minmax(0, 1fr); row-gap: 47px; }
   html.has-scroll-reveal .project-card { transition-delay: 0ms; }
@@ -209,6 +235,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid #272727; outline-offs
 
 @media (max-width: 380px) {
   :root { --page-gutter: 20px; }
+  .hero-copy h1 { font-size: 38px; }
+  .hero-art svg { max-height: 220px; }
   .video-dialog { width: calc(100vw - 24px); max-height: calc(100dvh - 24px); }
   .dialog-topline { padding: 14px 14px 12px; }
   .dialog-topline h2 { font-size: 20px; }
