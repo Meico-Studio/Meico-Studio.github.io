@@ -12,6 +12,18 @@
   const mobileNavigation = window.matchMedia("(max-width: 800px)");
   let activePreview = null;
   let activeCategory = "all";
+  let revealObserver = null;
+
+  if ("IntersectionObserver" in window && !reducedMotion.matches) {
+    document.documentElement.classList.add("has-scroll-reveal");
+    revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-revealed");
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  }
 
   dialogVideo.disablePictureInPicture = true;
 
@@ -90,6 +102,7 @@
     grid.querySelectorAll(".project-card").forEach((card) => {
       const project = projects[Number(card.dataset.index)];
       const preview = card.querySelector(".project-preview");
+      if (revealObserver) revealObserver.observe(card);
       const open = () => openProject(project);
       card.querySelector(".project-media").addEventListener("click", open);
       card.querySelector(".project-title").addEventListener("click", open);
