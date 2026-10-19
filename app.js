@@ -77,13 +77,7 @@
         });
         grid.querySelectorAll(".project-card").forEach((card) => {
           const project = projects[Number(card.dataset.index)];
-          const shouldHide = activeCategory !== "all" && !projectCategories(project).includes(activeCategory);
-          const wasHidden = card.hidden;
-          card.hidden = shouldHide;
-          if (!shouldHide && wasHidden && revealObserver) {
-            card.classList.remove("is-revealed");
-            requestAnimationFrame(() => revealObserver.observe(card));
-          }
+          card.hidden = activeCategory !== "all" && !projectCategories(project).includes(activeCategory);
         });
       });
     });
