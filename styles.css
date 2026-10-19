@@ -56,6 +56,33 @@ button { border: 0; }
 .hero-link:hover { opacity: .58; }
 .hero-art { display: flex; min-width: 0; align-items: center; justify-content: center; }
 .hero-art svg { display: block; width: min(100%, 620px); max-height: 430px; overflow: visible; }
+.hero-art-backdrop { transform-box: fill-box; transform-origin: center; animation: hero-backdrop-breathe 8s ease-in-out infinite alternate; }
+.hero-art-panel { opacity: 0; animation: hero-panel-arrive .8s cubic-bezier(.2,.7,.25,1) .12s forwards; }
+.hero-art-chart-ring, .hero-art-chart-angle, .hero-art-trend-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: hero-draw-line 1.15s cubic-bezier(.3,.7,.2,1) forwards; }
+.hero-art-chart-ring { animation-delay: .62s; }
+.hero-art-chart-angle { animation-delay: .86s; }
+.hero-art-trend-line { animation-delay: 1.08s; }
+.hero-art-indicator, .hero-art-signal, .hero-art-floating-dot { transform-box: fill-box; transform-origin: center; }
+.hero-art-indicator { opacity: 0; animation: hero-indicator-in .42s ease-out forwards; }
+.hero-art-indicator--one { animation-delay: .78s; }
+.hero-art-indicator--two { animation-delay: .91s; }
+.hero-art-indicator--three { animation-delay: 1.04s; }
+.hero-art-signal { animation: hero-signal-pulse 3.4s ease-in-out 1.8s infinite; }
+.hero-art-signal--mint { animation-delay: 2s; }
+.hero-art-floating-mark { animation: hero-float 5.2s ease-in-out 1.1s infinite alternate; }
+.hero-art-floating-dot { animation: hero-float 4.6s ease-in-out 1.4s infinite alternate-reverse; }
+@keyframes hero-backdrop-breathe { from { opacity: .7; transform: scale(.97); } to { opacity: 1; transform: scale(1.02); } }
+@keyframes hero-panel-arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes hero-draw-line { to { stroke-dashoffset: 0; } }
+@keyframes hero-indicator-in { from { opacity: 0; transform: scale(.35); } to { opacity: .96; transform: scale(1); } }
+@keyframes hero-signal-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+@keyframes hero-float { from { transform: translateY(-4px); } to { transform: translateY(5px); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-art-backdrop, .hero-art-panel, .hero-art-chart-ring, .hero-art-chart-angle, .hero-art-trend-line, .hero-art-indicator, .hero-art-signal, .hero-art-floating-mark, .hero-art-floating-dot { animation: none; }
+  .hero-art-backdrop { opacity: 1; transform: none; }
+  .hero-art-panel, .hero-art-indicator { opacity: 1; }
+  .hero-art-chart-ring, .hero-art-chart-angle, .hero-art-trend-line { stroke-dashoffset: 0; }
+}
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 10px; min-height: 0; padding-top: 42px; padding-bottom: 14px; }
   .hero-copy { padding: 0; }

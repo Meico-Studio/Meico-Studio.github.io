@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="Expressive animation for digital products, interfaces, and brands." />
     <meta name="twitter:image" content="https://meico-studio.github.io/assets/posters/shopping-bag.jpg" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <link rel="stylesheet" href="styles.css?v=hero-vector-20261020" />
+    <link rel="stylesheet" href="styles.css?v=hero-svg-motion-20261020" />
     <script src="projects.js?v=project-share-meta-20261019" defer></script>
     <script src="app.js?v=modal-cleanup-20261020" defer></script>
   </head>
@@ -63,27 +63,29 @@
           </div>
           <div class="hero-art" aria-hidden="true">
             <svg viewBox="0 0 620 430" role="presentation" focusable="false">
-              <circle cx="323" cy="215" r="174" fill="#e7eef5" />
+              <circle class="hero-art-backdrop" cx="323" cy="215" r="174" fill="#e7eef5" />
               <path d="M91 319c49-35 80-75 94-120 16-53 59-83 128-91" fill="none" stroke="#d5e0eb" stroke-width="3" stroke-linecap="round" />
               <path d="M414 354c22-65 58-109 108-132" fill="none" stroke="#d5e0eb" stroke-width="3" stroke-linecap="round" />
-              <g transform="rotate(-5 316 211)">
+              <g class="hero-art-panel" transform="rotate(-5 316 211)">
                 <rect x="112" y="75" width="400" height="278" rx="24" fill="#fff" stroke="#e0e5ea" stroke-width="2" />
                 <path d="M136 75h352a24 24 0 0 1 24 24v39H112V99a24 24 0 0 1 24-24Z" fill="#2589f4" />
-                <circle cx="145" cy="105" r="7" fill="#ff9e00" />
-                <circle cx="169" cy="105" r="7" fill="#fff" opacity=".96" />
-                <circle cx="193" cy="105" r="7" fill="#fff" opacity=".96" />
+                <circle class="hero-art-indicator hero-art-indicator--one" cx="145" cy="105" r="7" fill="#ff9e00" />
+                <circle class="hero-art-indicator hero-art-indicator--two" cx="169" cy="105" r="7" fill="#fff" opacity=".96" />
+                <circle class="hero-art-indicator hero-art-indicator--three" cx="193" cy="105" r="7" fill="#fff" opacity=".96" />
                 <circle cx="224" cy="224" r="55" fill="#eaf4fc" />
-                <path d="M224 177a47 47 0 1 0 39 73" fill="none" stroke="#2589f4" stroke-width="13" stroke-linecap="round" />
-                <path d="M224 177v47h47" fill="none" stroke="#2589f4" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="m318 237 34-33 28 21 51-58" fill="none" stroke="#44d9a7" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="hero-art-chart-ring" pathLength="1" d="M224 177a47 47 0 1 0 39 73" fill="none" stroke="#2589f4" stroke-width="13" stroke-linecap="round" />
+                <path class="hero-art-chart-angle" pathLength="1" d="M224 177v47h47" fill="none" stroke="#2589f4" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+                <path class="hero-art-trend-line" pathLength="1" d="m318 237 34-33 28 21 51-58" fill="none" stroke="#44d9a7" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M318 273h100" stroke="#dce4ec" stroke-width="9" stroke-linecap="round" />
                 <path d="M318 298h70" stroke="#dce4ec" stroke-width="9" stroke-linecap="round" />
-                <circle cx="444" cy="167" r="14" fill="#ff9e00" />
-                <circle cx="447" cy="237" r="9" fill="#44d9a7" />
+                <circle class="hero-art-signal" cx="444" cy="167" r="14" fill="#ff9e00" />
+                <circle class="hero-art-signal hero-art-signal--mint" cx="447" cy="237" r="9" fill="#44d9a7" />
               </g>
-              <rect x="60" y="159" width="76" height="76" rx="22" fill="#fff" />
-              <path d="M83 197h30M98 182v30" stroke="#2589f4" stroke-width="7" stroke-linecap="round" />
-              <circle cx="512" cy="304" r="30" fill="#ff9e00" />
+              <g class="hero-art-floating-mark">
+                <rect x="60" y="159" width="76" height="76" rx="22" fill="#fff" />
+                <path d="M83 197h30M98 182v30" stroke="#2589f4" stroke-width="7" stroke-linecap="round" />
+              </g>
+              <circle class="hero-art-floating-dot" cx="512" cy="304" r="30" fill="#ff9e00" />
               <circle cx="512" cy="304" r="12" fill="#fff" />
             </svg>
           </div>
