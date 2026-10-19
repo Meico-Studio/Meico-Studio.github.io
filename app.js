@@ -79,6 +79,9 @@
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
   const projectShareUrl = (project) => `https://meico-studio.github.io/projects/${projectSlug(project)}/`;
+  const projectHistoryUrl = (project) => window.location.protocol === "file:"
+    ? `?project=${encodeURIComponent(projectSlug(project))}`
+    : `/projects/${projectSlug(project)}/`;
 
   function renderFilters() {
     const counts = new Map();
@@ -198,8 +201,15 @@
     media.removeAttribute("src");
   }
 
-  function openProject(project) {
+  function openProject(project, { historyMode = "push" } = {}) {
     if (!project) return;
+    const slug = projectSlug(project);
+    const projectUrl = projectHistoryUrl(project);
+    if (historyMode === "push") {
+      window.history.pushState({ meicoProject: slug, meicoProjectFromGallery: true }, "", projectUrl);
+    } else if (historyMode === "replace") {
+      window.history.replaceState({ meicoProject: slug, meicoProjectFromGallery: false }, "", projectUrl);
+    }
     document.querySelectorAll(".project-preview").forEach((preview) => {
       stopPreview(preview);
       preview.closest(".project-card")?.classList.remove("is-previewing");
@@ -241,15 +251,27 @@
     }
   }
 
-  function closeDialog() {
+  function closeDialog({ syncHistory = true } = {}) {
     if (!dialog.open) return;
     dialog.close();
-    const currentUrl = new URL(window.location.href);
-    if (currentUrl.searchParams.has("project")) {
-      currentUrl.searchParams.delete("project");
-      window.history.replaceState(window.history.state, "", currentUrl);
+    if (!syncHistory) return;
+    if (window.history.state?.meicoProjectFromGallery) {
+      window.history.back();
+    } else if (window.history.state?.meicoProject) {
+      const workUrl = window.location.protocol === "file:" ? `${window.location.pathname}#work` : "/#work";
+      window.history.replaceState(null, "", workUrl);
     }
   }
+
+  window.addEventListener("popstate", (event) => {
+    const slug = event.state?.meicoProject;
+    if (!slug) {
+      if (dialog.open) closeDialog({ syncHistory: false });
+      return;
+    }
+    const project = projects.find((item) => projectSlug(item) === slug);
+    if (project) openProject(project, { historyMode: "none" });
+  });
 
   dialog.addEventListener("close", () => {
     dialogVideo.pause();
@@ -264,8 +286,10 @@
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) closeDialog();
   });
-  dialog.addEventListener("cancel", () => {
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
     dialogVideo.pause();
+    closeDialog();
   });
 
   function setMenuOpen(open) {
@@ -318,6 +342,6 @@
   const requestedProject = new URLSearchParams(window.location.search).get("project");
   if (requestedProject) {
     const linkedProject = projects.find((project) => projectSlug(project) === requestedProject);
-    if (linkedProject) openProject(linkedProject);
+    if (linkedProject) openProject(linkedProject, { historyMode: "replace" });
   }
 })();

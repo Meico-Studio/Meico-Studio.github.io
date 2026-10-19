@@ -59,6 +59,7 @@ for (const project of projects) {
   <meta name="twitter:title" content="${escapeHTML(title)}">
   <meta name="twitter:description" content="${escapeHTML(description)}">
   <meta name="twitter:image" content="${posterUrl}">
+  <script>window.location.replace(${JSON.stringify(homeProjectUrl)});</script>
 </head>
 <body class="project-share-page">
   <header class="project-share-header">
