@@ -91,21 +91,6 @@ html.has-scroll-reveal .project-card.is-revealed .project-title-row, html.has-sc
 
 .video-dialog { width: min(1040px, calc(100vw - 42px)); max-width: none; max-height: calc(100dvh - 42px); padding: 0; overflow: auto; border: 0; background: #fff; color: var(--ink); box-shadow: 0 24px 100px rgba(0,0,0,.32); }
 .video-dialog::backdrop { background: rgba(10,10,10,.78); backdrop-filter: blur(3px); }
-.email-dialog { width: min(420px, calc(100vw - 36px)); max-width: none; padding: 25px; border: 1px solid var(--line); background: #fff; color: var(--ink); box-shadow: 0 24px 100px rgba(0,0,0,.22); }
-.email-dialog::backdrop { background: rgba(10,10,10,.48); backdrop-filter: blur(3px); }
-.email-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
-.email-dialog-head .eyebrow { margin-bottom: 7px; }
-.email-dialog-head h2 { margin: 0; font-size: 23px; font-weight: 450; }
-.close-email-dialog { display: grid; width: 35px; height: 35px; place-items: center; padding: 0; border-radius: 50%; background: #f2f1ee; cursor: pointer; font-size: 23px; font-weight: 300; line-height: 1; }
-.email-options { border-top: 1px solid var(--line); }
-.email-option { display: flex; min-height: 66px; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
-.email-option:hover strong { opacity: .62; }
-.email-option-mark { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border: 1px solid #eee; border-radius: 50%; color: #d4493d; font-size: 15px; font-weight: 600; }
-.email-option-mark--outlook { color: #2874bb; }.email-option-mark--yahoo { color: #6441a5; }
-.email-option strong, .email-option small { display: block; }
-.email-option strong { font-size: 13px; font-weight: 500; transition: opacity .18s ease; }
-.email-option small { margin-top: 4px; color: var(--muted); font-size: 11px; }
-.email-option--default { padding-left: 48px; }
 .dialog-topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 19px 23px 17px; }
 .dialog-topline .eyebrow { margin: 0 0 2px; color: var(--muted); font-size: 9px; font-weight: 500; letter-spacing: .13em; line-height: 1.5; text-transform: uppercase; }
 .dialog-topline h2 { margin: 0; font-size: 23px; font-weight: 450; }
