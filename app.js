@@ -13,6 +13,7 @@
   let activePreview = null;
   let activeCategory = "all";
   let revealObserver = null;
+  let previewWarmObserver = null;
 
   if ("IntersectionObserver" in window && !reducedMotion.matches) {
     document.documentElement.classList.add("has-scroll-reveal");
@@ -23,6 +24,23 @@
         observer.unobserve(entry.target);
       });
     }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
+  }
+
+  if ("IntersectionObserver" in window && hoverAvailable.matches && !reducedMotion.matches) {
+    previewWarmObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const card = entry.target;
+        const project = projects[Number(card.dataset.index)];
+        const preview = card.querySelector(".project-preview");
+        if (project && !preview.src) {
+          preview.preload = "auto";
+          preview.src = project.preview || project.video;
+          preview.load();
+        }
+        observer.unobserve(card);
+      });
+    }, { rootMargin: "320px 0px", threshold: 0.01 });
   }
 
   dialogVideo.disablePictureInPicture = true;
@@ -77,7 +95,15 @@
         });
         grid.querySelectorAll(".project-card").forEach((card) => {
           const project = projects[Number(card.dataset.index)];
-          card.hidden = activeCategory !== "all" && !projectCategories(project).includes(activeCategory);
+          const shouldHide = activeCategory !== "all" && !projectCategories(project).includes(activeCategory);
+          const preview = card.querySelector(".project-preview");
+          if (shouldHide && activePreview === preview) {
+            stopPreview(preview);
+            card.classList.remove("is-previewing");
+            activePreview = null;
+          }
+          card.hidden = shouldHide;
+          if (!shouldHide && previewWarmObserver) previewWarmObserver.observe(card);
         });
       });
     });
@@ -103,6 +129,7 @@
       const project = projects[Number(card.dataset.index)];
       const preview = card.querySelector(".project-preview");
       if (revealObserver) revealObserver.observe(card);
+      if (previewWarmObserver) previewWarmObserver.observe(card);
       const open = () => openProject(project);
       card.querySelector(".project-media").addEventListener("click", open);
       card.querySelector(".project-title").addEventListener("click", open);
@@ -111,8 +138,15 @@
         if (!hoverAvailable.matches || reducedMotion.matches) return;
         if (activePreview && activePreview !== preview) stopPreview(activePreview);
         activePreview = preview;
-        if (!preview.src) preview.src = project.preview || project.video;
-        preview.play().then(() => card.classList.add("is-previewing")).catch(() => {});
+        if (!preview.src) {
+          preview.preload = "auto";
+          preview.src = project.preview || project.video;
+          preview.load();
+        }
+        const playRequest = preview.play();
+        if (playRequest && typeof playRequest.then === "function") {
+          playRequest.then(() => card.classList.add("is-previewing")).catch(() => {});
+        }
       };
       const endPreview = () => {
         if (activePreview === preview) activePreview = null;
