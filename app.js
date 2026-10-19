@@ -39,7 +39,7 @@
         const preview = card.querySelector(".project-preview");
         if (project && project.mediaType !== "svg" && !preview.src) {
           preview.preload = "auto";
-          preview.src = project.preview || project.video;
+            preview.src = projectAssetUrl(project.preview || project.video);
           preview.load();
         }
         observer.unobserve(card);
@@ -132,9 +132,9 @@
       <article class="project-card${project.mediaFit === "contain" ? " project-card--contain-media" : ""}${project.mediaType === "svg" ? " project-card--svg" : ""}" data-index="${index}">
         <button class="project-media" type="button" aria-label="${project.mediaType === "svg" ? "View" : "Play"} ${escapeHTML(project.title)}">
           <span class="media-frame">
-            <img class="project-poster" src="${escapeHTML(project.poster)}" alt="${escapeHTML(project.title)} project artwork" loading="${index < 3 ? "eager" : "lazy"}" decoding="async" fetchpriority="${index === 0 ? "high" : "auto"}" />
+            <img class="project-poster" src="${escapeHTML(projectAssetUrl(project.poster))}" alt="${escapeHTML(project.title)} project artwork" loading="${index < 3 ? "eager" : "lazy"}" decoding="async" fetchpriority="${index === 0 ? "high" : "auto"}" />
             ${project.mediaType === "svg"
-              ? `<img class="project-preview" data-animation-src="${escapeHTML(project.preview)}" alt="" aria-hidden="true" />`
+              ? `<img class="project-preview" data-animation-src="${escapeHTML(projectAssetUrl(project.preview))}" alt="" aria-hidden="true" />`
               : `<video class="project-preview" muted playsinline loop preload="none" aria-hidden="true"></video>`}
           </span>
         </button>
@@ -173,7 +173,7 @@
         }
         if (!preview.src) {
           preview.preload = "auto";
-          preview.src = project.preview || project.video;
+          preview.src = projectAssetUrl(project.preview || project.video);
           preview.load();
         }
         const playRequest = preview.play();
