@@ -82,6 +82,9 @@
   const projectHistoryUrl = (project) => window.location.protocol === "file:"
     ? `?project=${encodeURIComponent(projectSlug(project))}`
     : `/projects/${projectSlug(project)}/`;
+  const projectAssetUrl = (assetPath) => window.location.protocol === "file:"
+    ? new URL(assetPath, document.baseURI).href
+    : new URL(assetPath, `${window.location.origin}/`).href;
 
   function renderFilters() {
     const counts = new Map();
@@ -236,11 +239,11 @@
       dialogVideo.removeAttribute("src");
       dialogVideo.load();
       dialogSvg.alt = project.title;
-      dialogSvg.src = project.video;
+      dialogSvg.src = projectAssetUrl(project.video);
     } else {
       dialogSvg.removeAttribute("src");
-      dialogVideo.src = project.video;
-      dialogVideo.poster = project.poster;
+      dialogVideo.src = projectAssetUrl(project.video);
+      dialogVideo.poster = projectAssetUrl(project.poster);
       dialogVideo.load();
     }
     dialog.showModal();
