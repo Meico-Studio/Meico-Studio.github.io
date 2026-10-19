@@ -72,6 +72,14 @@
     Character: "Characters"
   })[category] || `${category}s`;
 
+  const projectSlug = (project) => String(project.id || project.title || "project")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  const projectShareUrl = (project) => `https://meico-studio.github.io/projects/${projectSlug(project)}/`;
+
   function renderFilters() {
     const counts = new Map();
     projects.forEach((project) => projectCategories(project).forEach((category) => {
@@ -202,10 +210,14 @@
     document.querySelector("#dialog-description").textContent = project.description;
     const isSvg = project.mediaType === "svg";
     const formats = isSvg ? ["Animated SVG"] : ["MP4 video"];
+    const shareUrl = projectShareUrl(project);
+    const emailSubject = `Project inquiry — ${project.title} | Meico Studio`;
+    const emailBody = `Hi Meico Studio,\n\nI’m interested in the ${project.title} project.\n\n${shareUrl}`;
+    const emailHref = `mailto:info.meicostudio@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     const requestSubject = encodeURIComponent(`Editable Source Files Inquiry — ${project.title} | Meico Studio`);
     dialogDelivery.innerHTML = `
       <div class="delivery-current"><span class="delivery-label">Included preview</span><span class="delivery-format">${formats.map(escapeHTML).join(" · ")}</span></div>
-      <a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}" target="_blank" rel="noopener noreferrer">Ask about editable files</a>
+      <div class="delivery-actions"><a class="project-share-link" href="${escapeHTML(emailHref)}">Email this project</a><a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}">Ask about editable files</a></div>
     `;
     dialogSvg.hidden = !isSvg;
     dialogVideo.hidden = isSvg;
@@ -232,6 +244,11 @@
   function closeDialog() {
     if (!dialog.open) return;
     dialog.close();
+    const currentUrl = new URL(window.location.href);
+    if (currentUrl.searchParams.has("project")) {
+      currentUrl.searchParams.delete("project");
+      window.history.replaceState(window.history.state, "", currentUrl);
+    }
   }
 
   dialog.addEventListener("close", () => {
@@ -298,4 +315,9 @@
 
   renderFilters();
   renderProjects();
+  const requestedProject = new URLSearchParams(window.location.search).get("project");
+  if (requestedProject) {
+    const linkedProject = projects.find((project) => projectSlug(project) === requestedProject);
+    if (linkedProject) openProject(linkedProject);
+  }
 })();
