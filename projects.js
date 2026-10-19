@@ -208,5 +208,38 @@ window.MEICO_PROJECTS = [
     "poster": "assets/posters/document-lock.jpg",
     "preview": "assets/previews/document-lock.mp4",
     "video": "assets/videos/document-lock.mp4"
+  },
+  {
+    "title": "Router",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A clean network router animation for connected technology.",
+    "poster": "assets/posters/router.jpg",
+    "preview": "assets/previews/router.mp4",
+    "video": "assets/videos/router.mp4"
+  },
+  {
+    "title": "Passcode",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A secure passcode concept animated with a crisp, simple rhythm.",
+    "poster": "assets/posters/passcode.jpg",
+    "preview": "assets/previews/passcode.mp4",
+    "video": "assets/videos/passcode.mp4"
+  },
+  {
+    "title": "Eye Blink",
+    "category": "Character",
+    "categories": [
+      "Character"
+    ],
+    "description": "A small character animation with expressive eye movement.",
+    "poster": "assets/posters/eye-blink.jpg",
+    "preview": "assets/previews/eye-blink.mp4",
+    "video": "assets/videos/eye-blink.mp4"
   }
 ];
