@@ -20,9 +20,9 @@
     <meta name="twitter:description" content="Expressive animation for digital products, interfaces, and brands." />
     <meta name="twitter:image" content="https://meico-studio.github.io/assets/posters/shopping-bag.jpg" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <link rel="stylesheet" href="styles.css?v=modal-cleanup-20261020" />
+    <link rel="stylesheet" href="styles.css?v=hero-redesign-20261020" />
     <script src="projects.js?v=project-share-meta-20261019" defer></script>
-    <script src="app.js?v=modal-cleanup-20261020" defer></script>
+    <script src="app.js?v=hero-redesign-20261020" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#work">Skip to work</a>
@@ -54,11 +54,28 @@
 
     <main>
       <section class="work-section" id="work" aria-labelledby="work-heading">
-        <h1 class="sr-only" id="work-heading">Selected work</h1>
-        <div class="section-intro">
-          <p class="eyebrow">Independent motion design</p>
-          <h2>Small moments.<br /><span>Made to move.</span></h2>
-          <p class="section-lede">A growing collection of expressive animation for digital products, interfaces, and brands.</p>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <p class="hero-kicker"><span class="hero-kicker-dot"></span> Independent motion design</p>
+            <h1 class="hero-title" id="work-heading">Motion with<br /><span>a point of view.</span></h1>
+            <p class="hero-lede">Expressive animation for digital products, interfaces, and brands.</p>
+            <div class="hero-actions">
+              <a class="hero-action hero-action--primary" href="#project-grid">View selected work</a>
+              <a class="hero-action hero-action--text" href="mailto:info.meicostudio@gmail.com?subject=New%20Project%20Inquiry%20%E2%80%94%20Meico%20Studio">Start a project</a>
+            </div>
+            <div class="hero-specialties" aria-label="Areas of focus">
+              <span>Product &amp; UI</span><span>Illustration</span><span>Character</span>
+            </div>
+          </div>
+
+          <button class="hero-feature" id="featured-project" type="button" aria-label="View featured project">
+            <span class="hero-feature-top"><span>Featured motion</span><span>Selected work</span></span>
+            <span class="hero-feature-image"><img id="featured-poster" src="assets/posters/analytics-dashboard.jpg" alt="" decoding="async" /></span>
+            <span class="hero-feature-caption">
+              <span class="hero-feature-copy"><span id="featured-category">Data visualization</span><strong id="featured-title">Analytics Dashboard</strong></span>
+              <span class="hero-feature-link">View project</span>
+            </span>
+          </button>
         </div>
         <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by category"></div>
         <div class="project-grid" id="project-grid" aria-live="polite"></div>

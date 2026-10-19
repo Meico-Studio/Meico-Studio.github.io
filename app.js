@@ -193,6 +193,22 @@
     });
   }
 
+  function renderFeaturedProject() {
+    const featured = projects.find((project) => project.title === "Analytics Dashboard") || projects[0];
+    const button = document.querySelector("#featured-project");
+    if (!featured || !button) return;
+
+    const poster = button.querySelector("#featured-poster");
+    const title = button.querySelector("#featured-title");
+    const category = button.querySelector("#featured-category");
+    poster.src = projectAssetUrl(featured.poster);
+    poster.alt = `${featured.title} project artwork`;
+    title.textContent = featured.title;
+    category.textContent = featured.category || "Motion design";
+    button.setAttribute("aria-label", `View ${featured.title} project`);
+    button.addEventListener("click", () => openProject(featured));
+  }
+
   function stopPreview(media) {
     if (media instanceof HTMLVideoElement) {
       media.pause();
@@ -358,6 +374,7 @@
 
   renderFilters();
   renderProjects();
+  renderFeaturedProject();
   const requestedProject = new URLSearchParams(window.location.search).get("project");
   if (requestedProject) {
     const linkedProject = projects.find((project) => projectSlug(project) === requestedProject);
