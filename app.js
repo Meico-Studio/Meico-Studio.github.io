@@ -14,6 +14,8 @@
   const mobileNavigation = window.matchMedia("(max-width: 800px)");
   let activePreview = null;
   let activeCategory = "all";
+  let activeProject = null;
+  let projectReturnScrollY = null;
   let revealObserver = null;
   let previewWarmObserver = null;
 
@@ -209,10 +211,15 @@
     const slug = projectSlug(project);
     const projectUrl = projectHistoryUrl(project);
     if (historyMode === "push") {
+      projectReturnScrollY = window.scrollY;
       window.history.pushState({ meicoProject: slug, meicoProjectFromGallery: true }, "", projectUrl);
     } else if (historyMode === "replace") {
+      projectReturnScrollY = null;
       window.history.replaceState({ meicoProject: slug, meicoProjectFromGallery: false }, "", projectUrl);
+    } else {
+      projectReturnScrollY = window.scrollY;
     }
+    activeProject = project;
     document.querySelectorAll(".project-preview").forEach((preview) => {
       stopPreview(preview);
       preview.closest(".project-card")?.classList.remove("is-previewing");
@@ -263,13 +270,34 @@
     } else if (window.history.state?.meicoProject) {
       const workUrl = window.location.protocol === "file:" ? `${window.location.pathname}#work` : "/#work";
       window.history.replaceState(null, "", workUrl);
+      restoreProjectPosition();
+    } else {
+      restoreProjectPosition();
     }
+  }
+
+  function restoreProjectPosition() {
+    if (!activeProject) return;
+    const project = activeProject;
+    const returnScrollY = projectReturnScrollY;
+    const cardIndex = projects.indexOf(project);
+    const card = grid.querySelector(`.project-card[data-index="${cardIndex}"]`);
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+      if (returnScrollY !== null) {
+        window.scrollTo({ top: returnScrollY, behavior: "instant" });
+      } else {
+        card?.scrollIntoView({ block: "center", behavior: reducedMotion.matches ? "instant" : "smooth" });
+      }
+      activeProject = null;
+      projectReturnScrollY = null;
+    }));
   }
 
   window.addEventListener("popstate", (event) => {
     const slug = event.state?.meicoProject;
     if (!slug) {
       if (dialog.open) closeDialog({ syncHistory: false });
+      restoreProjectPosition();
       return;
     }
     const project = projects.find((item) => projectSlug(item) === slug);
