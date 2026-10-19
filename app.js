@@ -7,6 +7,8 @@
   const dialogSvg = document.querySelector("#dialog-svg");
   const dialogDelivery = document.querySelector("#dialog-delivery");
   const closeButton = document.querySelector(".close-dialog");
+  const emailDialog = document.querySelector("#email-dialog");
+  const closeEmailDialog = document.querySelector(".close-email-dialog");
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.querySelector("#site-nav");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -205,7 +207,7 @@
     const requestSubject = encodeURIComponent(`Editable Source Files Inquiry — ${project.title} | Meico Studio`);
     dialogDelivery.innerHTML = `
       <div class="delivery-current"><span class="delivery-label">Included preview</span><span class="delivery-format">${formats.map(escapeHTML).join(" · ")}</span></div>
-      <a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}" target="_blank" rel="noopener noreferrer">Ask about editable files</a>
+      <a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}" data-email-subject="${escapeHTML(`Editable Source Files Inquiry — ${project.title} | Meico Studio`)}">Ask about editable files</a>
     `;
     dialogSvg.hidden = !isSvg;
     dialogVideo.hidden = isSvg;
@@ -249,6 +251,40 @@
   });
   dialog.addEventListener("cancel", () => {
     dialogVideo.pause();
+  });
+
+  function openEmailChooser(subject) {
+    const address = "info.meicostudio@gmail.com";
+    const encodedAddress = encodeURIComponent(address);
+    const encodedSubject = encodeURIComponent(subject || "Project Inquiry — Meico Studio");
+    const providerUrls = {
+      gmail: `https://mail.google.com/mail/?view=cm&fs=1&to=${encodedAddress}&su=${encodedSubject}`,
+      outlook: `https://outlook.live.com/mail/0/deeplink/compose?to=${encodedAddress}&subject=${encodedSubject}`,
+      yahoo: `https://compose.mail.yahoo.com/?to=${encodedAddress}&subject=${encodedSubject}`,
+      default: `mailto:${address}?subject=${encodedSubject}`
+    };
+    emailDialog.querySelectorAll("[data-email-provider]").forEach((link) => {
+      const provider = link.dataset.emailProvider;
+      link.href = providerUrls[provider];
+      if (provider === "default") link.removeAttribute("target");
+      else link.setAttribute("target", "_blank");
+    });
+    emailDialog.showModal();
+    emailDialog.querySelector('[data-email-provider="gmail"]').focus();
+  }
+
+  document.addEventListener("click", (event) => {
+    const link = event.target instanceof Element ? event.target.closest("[data-email-subject]") : null;
+    if (!link) return;
+    event.preventDefault();
+    openEmailChooser(link.dataset.emailSubject);
+  });
+  closeEmailDialog.addEventListener("click", () => emailDialog.close());
+  emailDialog.querySelectorAll("[data-email-provider]").forEach((link) => {
+    link.addEventListener("click", () => emailDialog.close());
+  });
+  emailDialog.addEventListener("click", (event) => {
+    if (event.target === emailDialog) emailDialog.close();
   });
 
   function setMenuOpen(open) {
