@@ -202,10 +202,10 @@
     document.querySelector("#dialog-description").textContent = project.description;
     const isSvg = project.mediaType === "svg";
     const formats = isSvg ? ["Animated SVG"] : ["MP4 video"];
-    const requestSubject = encodeURIComponent(`Source files — ${project.title}`);
+    const requestSubject = encodeURIComponent(`Editable Source Files Inquiry — ${project.title} | Meico Studio`);
     dialogDelivery.innerHTML = `
       <div class="delivery-current"><span class="delivery-label">Included preview</span><span class="delivery-format">${formats.map(escapeHTML).join(" · ")}</span></div>
-      <a class="delivery-request" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=info.meicostudio%40gmail.com&amp;su=${requestSubject}">Ask about editable files <span aria-hidden="true">↗</span></a>
+      <a class="delivery-request" href="mailto:info.meicostudio@gmail.com?subject=${requestSubject}">Ask about editable files <span aria-hidden="true">↗</span></a>
     `;
     dialogSvg.hidden = !isSvg;
     dialogVideo.hidden = isSvg;
