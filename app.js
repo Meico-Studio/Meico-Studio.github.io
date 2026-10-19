@@ -22,7 +22,7 @@
         entry.target.classList.add("is-revealed");
         observer.unobserve(entry.target);
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.08 });
   }
 
   dialogVideo.disablePictureInPicture = true;
@@ -88,7 +88,7 @@
       <article class="project-card${project.mediaFit === "contain" ? " project-card--contain-media" : ""}" data-index="${index}">
         <button class="project-media" type="button" aria-label="Play ${escapeHTML(project.title)}">
           <span class="media-frame">
-            <img class="project-poster" src="${escapeHTML(project.poster)}" alt="${escapeHTML(project.title)} film still" loading="${index < 3 ? "eager" : "lazy"}" />
+            <img class="project-poster" src="${escapeHTML(project.poster)}" alt="${escapeHTML(project.title)} film still" loading="${index < 3 ? "eager" : "lazy"}" decoding="async" fetchpriority="${index === 0 ? "high" : "auto"}" />
             <video class="project-preview" muted playsinline loop preload="none" aria-hidden="true"></video>
           </span>
         </button>

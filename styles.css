@@ -58,6 +58,12 @@ html.has-scroll-reveal .project-card { opacity: 0; transform: translateY(24px); 
 html.has-scroll-reveal .project-card:nth-child(3n + 2) { transition-delay: 75ms; }
 html.has-scroll-reveal .project-card:nth-child(3n) { transition-delay: 150ms; }
 html.has-scroll-reveal .project-card.is-revealed { opacity: 1; transform: translateY(0); }
+html.has-scroll-reveal .project-card .media-frame { clip-path: inset(3% 2% 3%); transform: scale(.97); transition: clip-path .7s cubic-bezier(.2,.65,.25,1), transform .8s cubic-bezier(.2,.65,.25,1); }
+html.has-scroll-reveal .project-card.is-revealed .media-frame { clip-path: inset(0); transform: scale(1); }
+html.has-scroll-reveal .project-card .project-title-row, html.has-scroll-reveal .project-card .project-category { opacity: 0; transform: translateY(9px); transition: opacity .45s ease, transform .5s cubic-bezier(.2,.65,.25,1); }
+html.has-scroll-reveal .project-card .project-title-row { transition-delay: 100ms; }
+html.has-scroll-reveal .project-card .project-category { transition-delay: 170ms; }
+html.has-scroll-reveal .project-card.is-revealed .project-title-row, html.has-scroll-reveal .project-card.is-revealed .project-category { opacity: 1; transform: translateY(0); }
 .project-card[hidden] { display: none; }
 .project-media { position: relative; display: block; width: 100%; padding: 0; overflow: hidden; background: #fff; cursor: pointer; text-align: left; -webkit-tap-highlight-color: transparent; }
 .media-frame { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid var(--line); background: #fff; }
@@ -145,5 +151,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid #272727; outline-offs
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-  html.has-scroll-reveal .project-card { opacity: 1; transform: none; transition: none; }
+  html.has-scroll-reveal .project-card, html.has-scroll-reveal .project-card .media-frame,
+  html.has-scroll-reveal .project-card .project-title-row, html.has-scroll-reveal .project-card .project-category { opacity: 1; transform: none; clip-path: none; transition: none; }
 }
