@@ -62,9 +62,9 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A crisp commerce icon animated for a smooth, useful interface.",
-    "poster": "assets/posters/shopping-cart.jpg",
-    "preview": "assets/previews/shopping-cart.mp4",
-    "video": "assets/videos/shopping-cart.mp4?v=trim-6s-20261020"
+    "poster": "assets/posters/shopping-cart.jpg?v=shopping-cart-first-frame-20261020",
+    "preview": "assets/videos/shopping-cart.mp4?v=shopping-cart-6s-20261020",
+    "video": "assets/videos/shopping-cart.mp4?v=shopping-cart-6s-20261020"
   },
   {
     "title": "Notification Bell",
