@@ -43,7 +43,7 @@ for (const project of projects) {
   <meta name="description" content="${escapeHTML(description)}">
   <title>${escapeHTML(title)}</title>
   <link rel="canonical" href="${canonical}">
-  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
   <link rel="stylesheet" href="../../styles.css?v=project-share-meta-20261019">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Meico Studio">
