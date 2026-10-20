@@ -18,81 +18,15 @@
   let revealObserver = null;
   let previewWarmObserver = null;
 
-  const heroIcons = Array.from(document.querySelectorAll(".hero-icon"));
-  const heroMotionKey = "meico-hero-motion-v1";
-
-  function getHeroMotionState() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(heroMotionKey));
-      if (saved?.version === 1 && Number.isFinite(saved.epoch) && Array.isArray(saved.icons) && saved.icons.length === heroIcons.length) {
-        return saved;
-      }
-    } catch {}
-
-    const state = {
-      version: 1,
-      epoch: Date.now(),
-      icons: heroIcons.map((icon) => {
-        const turnDuration = 10 + Math.random() * 8;
-        const floatDelay = Number.parseFloat(getComputedStyle(icon).getPropertyValue("--float-delay")) || 0;
-        const angle = () => Number((Math.random() * 4 - 2).toFixed(2));
-        return {
-          turnDuration: Number(turnDuration.toFixed(2)),
-          turnOffset: Number((Math.random() * turnDuration).toFixed(2)),
-          floatOffset: Math.max(0, -floatDelay),
-          angles: [angle(), angle(), angle()]
-        };
-      })
-    };
-    try { localStorage.setItem(heroMotionKey, JSON.stringify(state)); } catch {}
-    return state;
-  }
-
-  if (heroIcons.length && !reducedMotion.matches) {
-    const motion = getHeroMotionState();
-    const elapsed = Math.max(0, (Date.now() - motion.epoch) / 1000);
-    const phaseUrls = [];
-
-    const phaseTasks = heroIcons.map(async (icon, index) => {
-      const settings = motion.icons[index];
-      const turnDuration = settings.turnDuration;
-      icon.style.setProperty("--turn-duration", `${turnDuration}s`);
-      icon.style.setProperty("--float-delay", `${-(elapsed + settings.floatOffset)}s`);
-      icon.style.setProperty("--turn-delay", `${-(elapsed + settings.turnOffset)}s`);
-      icon.style.setProperty("--turn-a", `${settings.angles[0]}deg`);
-      icon.style.setProperty("--turn-b", `${settings.angles[1]}deg`);
-      icon.style.setProperty("--turn-c", `${settings.angles[2]}deg`);
-
-      const originalSource = icon.getAttribute("src");
-      if (!originalSource || window.location.protocol === "file:") return;
-      icon.style.visibility = "hidden";
-      try {
-        const response = await fetch(new URL(originalSource, document.baseURI), { cache: "force-cache" });
-        if (!response.ok) return;
-        const source = await response.text();
-        const phased = source.replace(
-          /(\*\s*\{\s*animation-delay:\s*)-(\d+(?:\.\d+)?)s(\s*!important;\s*\})/,
-          (_, prefix, offset, suffix) => `${prefix}-${(elapsed + Number(offset)).toFixed(3)}s${suffix}`
-        );
-        if (phased === source) return;
-        const blobUrl = URL.createObjectURL(new Blob([phased], { type: "image/svg+xml" }));
-        phaseUrls.push(blobUrl);
-        await new Promise((resolve) => {
-          icon.addEventListener("load", resolve, { once: true });
-          icon.addEventListener("error", resolve, { once: true });
-          icon.src = blobUrl;
-        });
-      } catch {
-        // Keep the original SVG visible if local storage, fetch, or Blob URLs are unavailable.
-      } finally {
-        icon.style.visibility = "";
-      }
-    });
-
-    Promise.allSettled(phaseTasks).then(() => {
-      window.addEventListener("pagehide", () => phaseUrls.forEach((url) => URL.revokeObjectURL(url)), { once: true });
-    });
-  }
+  document.querySelectorAll(".hero-icon").forEach((icon) => {
+    const turnDuration = 10 + Math.random() * 8;
+    const angle = () => `${(Math.random() * 4 - 2).toFixed(2)}deg`;
+    icon.style.setProperty("--turn-duration", `${turnDuration.toFixed(2)}s`);
+    icon.style.setProperty("--turn-delay", `${(-Math.random() * turnDuration).toFixed(2)}s`);
+    icon.style.setProperty("--turn-a", angle());
+    icon.style.setProperty("--turn-b", angle());
+    icon.style.setProperty("--turn-c", angle());
+  });
 
   if ("IntersectionObserver" in window && !reducedMotion.matches) {
     document.documentElement.classList.add("has-scroll-reveal");
