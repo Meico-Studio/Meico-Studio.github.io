@@ -128,7 +128,7 @@ window.MEICO_PROJECTS = [
       "Badge"
     ],
     "description": "A bold discount badge that lands with a quick animated accent.",
-    "poster": "assets/posters/30-percent-badge.jpg?v=preview-frame-20261020",
+    "poster": "assets/posters/30-percent-badge.jpg?v=preview-first-frame-20261020",
     "preview": "assets/videos/30-percent-badge.mp4?v=trim-6s-20261020",
     "video": "assets/videos/30-percent-badge.mp4?v=trim-6s-20261020"
   },
