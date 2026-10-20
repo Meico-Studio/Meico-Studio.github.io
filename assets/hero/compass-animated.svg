@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:c2pa="http://c2pa.org/manifest" version="1.1" viewBox="0 0 300 300">
+  <metadata>
+    <?xpacket begin="" id="W5M0MpCehiHzreSzNTczkc9d"?>
+    <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="XMP Core 6.0.0">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <rdf:Description rdf:about="" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmpMM:DocumentID="xmp.did:cb9f5498-bb58-4572-8043-8c369e6bfb9b" xmpMM:InstanceID="xmp.iid:cb9f5498-bb58-4572-8043-8c369e6bfb9b" dcterms:provenance="https://cai-manifests.adobe.com/manifests/urn-c2pa-e47d225b-aaed-4512-9f13-1f022d598639-adobe"> </rdf:Description>
+      </rdf:RDF>
+    </x:xmpmeta>
+    <?xpacket end="w"?>
+  </metadata>
+  <!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1)  -->
+  <defs>
+    <linearGradient id="linear-gradient" x1="72.59" y1="258.21" x2="228.25" y2="44.19" gradientTransform="translate(0 301.78) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4b4b4d"/>
+      <stop offset="1" stop-color="#101012"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="190.59" y1="1057.37" x2="370.59" y2="827.37" gradientTransform="translate(-704.21 624.1) rotate(45) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff4a5d"/>
+      <stop offset=".4" stop-color="#ee142a"/>
+      <stop offset=".8" stop-color="#c40015"/>
+      <stop offset="1" stop-color="#94000e"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient2" x1="181" y1="1042.69" x2="341" y2="822.69" gradientTransform="translate(-704.21 624.1) rotate(45) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4b4b4d"/>
+      <stop offset="1" stop-color="#101012"/>
+    </linearGradient>
+    <style>
+      <![CDATA[
+      .i67-all {
+        transform-origin: 150px 150px;
+        animation: i67-all 6s ease-in-out infinite;
+      }
+      @keyframes i67-all {
+        0% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        9% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        11.5% { transform: translate(0px, 0px) rotate(0deg) scale(1.07, 1.07) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        14.5% { transform: translate(0px, 0px) rotate(0deg) scale(0.97, 0.97) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        17% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        39.83% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        42.33% { transform: translate(0px, 0px) rotate(0deg) scale(1.07, 1.07) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        45.33% { transform: translate(0px, 0px) rotate(0deg) scale(0.97, 0.97) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        47.83% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        100% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+      }
+      
+      .i67-ring {
+        transform-origin: 150px 150px;
+        animation: i67-ring 6s ease-in-out infinite;
+      }
+      @keyframes i67-ring {
+        0% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        11.5% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        14% { transform: translate(0px, 0px) rotate(0deg) scale(1.05, 1.05) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        17% { transform: translate(0px, 0px) rotate(0deg) scale(0.99, 0.99) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        19.5% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        21.5% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        23.3% { transform: translate(0px, 0px) rotate(0deg) scale(1.05, 1.05) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        25.1% { transform: translate(0px, 0px) rotate(0deg) scale(0.99, 0.99) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        26.9% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        42.33% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        44.83% { transform: translate(0px, 0px) rotate(0deg) scale(1.05, 1.05) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        47.83% { transform: translate(0px, 0px) rotate(0deg) scale(0.99, 0.99) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        50.33% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        52.33% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        54.13% { transform: translate(0px, 0px) rotate(0deg) scale(1.05, 1.05) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        55.93% { transform: translate(0px, 0px) rotate(0deg) scale(0.99, 0.99) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        57.73% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        100% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+      }
+      
+      .i67-needle {
+        transform-origin: 150px 150px;
+        animation: i67-needle 6s ease-in-out infinite;
+      }
+      @keyframes i67-needle {
+        0% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        21.5% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        23.1% { transform: translate(0px, 0px) rotate(110deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        24.7% { transform: translate(0px, 0px) rotate(-60deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        26.3% { transform: translate(0px, 0px) rotate(34deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        27.9% { transform: translate(0px, 0px) rotate(-16deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        29.5% { transform: translate(0px, 0px) rotate(6deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        31.1% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        52.33% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        53.93% { transform: translate(0px, 0px) rotate(110deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        55.53% { transform: translate(0px, 0px) rotate(-60deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        57.13% { transform: translate(0px, 0px) rotate(34deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        58.73% { transform: translate(0px, 0px) rotate(-16deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        60.33% { transform: translate(0px, 0px) rotate(6deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        61.93% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        100% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+      }
+      
+      .i67-pin {
+        transform-origin: 150px 150px;
+        animation: i67-pin 6s ease-in-out infinite;
+      }
+      @keyframes i67-pin {
+        0% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        13% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        15.5% { transform: translate(0px, 0px) rotate(0deg) scale(1.6, 1.6) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        18.5% { transform: translate(0px, 0px) rotate(0deg) scale(0.85, 0.85) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        21% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        43.83% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        46.33% { transform: translate(0px, 0px) rotate(0deg) scale(1.6, 1.6) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        49.33% { transform: translate(0px, 0px) rotate(0deg) scale(0.85, 0.85) skewX(0deg) skewY(0deg); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        51.83% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+        100% { transform: translate(0px, 0px) rotate(0deg) scale(1, 1) skewX(0deg) skewY(0deg); animation-timing-function: ease-in-out; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .i67-all, .i67-ring, .i67-needle, .i67-pin { animation: none; }
+      }
+      ]]>
+    </style>
+  </defs>
+  <g id="Layer_2-2">
+    <g id="Icon_Compass">
+      <g id="glyph" class="i67-all">
+        <circle cx="150" cy="150" r="82" fill="none" stroke="url(#linear-gradient)" stroke-width="15" class="i67-ring"/>
+        <g class="i67-needle">
+          <polygon points="193.84 106.16 164.14 164.14 135.86 135.86 193.84 106.16" fill="url(#linear-gradient1)"/>
+          <polygon points="106.16 193.84 164.14 164.14 135.86 135.86 106.16 193.84" fill="url(#linear-gradient2)"/>
+        </g>
+        <circle cx="150" cy="150" r="8" fill="#fff" class="i67-pin"/>
+      </g>
+    </g>
+  </g>
+</svg>
