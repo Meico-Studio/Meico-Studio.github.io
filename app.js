@@ -51,9 +51,7 @@
   if (heroIcons.length && !reducedMotion.matches) {
     const motion = getHeroMotionState();
     const elapsed = Math.max(0, (Date.now() - motion.epoch) / 1000);
-    const phaseUrls = [];
-
-    const phaseTasks = heroIcons.map(async (icon, index) => {
+    heroIcons.forEach((icon, index) => {
       const settings = motion.icons[index];
       const turnDuration = settings.turnDuration;
       icon.style.setProperty("--turn-duration", `${turnDuration}s`);
@@ -62,35 +60,6 @@
       icon.style.setProperty("--turn-a", `${settings.angles[0]}deg`);
       icon.style.setProperty("--turn-b", `${settings.angles[1]}deg`);
       icon.style.setProperty("--turn-c", `${settings.angles[2]}deg`);
-
-      const originalSource = icon.getAttribute("src");
-      if (!originalSource || window.location.protocol === "file:") return;
-      icon.style.visibility = "hidden";
-      try {
-        const response = await fetch(new URL(originalSource, document.baseURI), { cache: "force-cache" });
-        if (!response.ok) return;
-        const source = await response.text();
-        const phased = source.replace(
-          /(\*\s*\{\s*animation-delay:\s*)-(\d+(?:\.\d+)?)s(\s*!important;\s*\})/,
-          (_, prefix, offset, suffix) => `${prefix}-${(elapsed + Number(offset)).toFixed(3)}s${suffix}`
-        );
-        if (phased === source) return;
-        const blobUrl = URL.createObjectURL(new Blob([phased], { type: "image/svg+xml" }));
-        phaseUrls.push(blobUrl);
-        await new Promise((resolve) => {
-          icon.addEventListener("load", resolve, { once: true });
-          icon.addEventListener("error", resolve, { once: true });
-          icon.src = blobUrl;
-        });
-      } catch {
-        // Keep the original SVG visible if local storage, fetch, or Blob URLs are unavailable.
-      } finally {
-        icon.style.visibility = "";
-      }
-    });
-
-    Promise.allSettled(phaseTasks).then(() => {
-      window.addEventListener("pagehide", () => phaseUrls.forEach((url) => URL.revokeObjectURL(url)), { once: true });
     });
   }
 
@@ -124,7 +93,7 @@
 
   dialogVideo.disablePictureInPicture = true;
 
-  const protectedMediaSelector = 'video, .project-media, .project-poster, .hero-icon, #dialog-svg, img[src*=".svg"]';
+  const protectedMediaSelector = 'video, .project-media, .project-poster, .hero-icon, #dialog-svg, img[src*=".png"]';
   document.querySelectorAll(".hero-icon, #dialog-svg").forEach((image) => {
     image.draggable = false;
   });
