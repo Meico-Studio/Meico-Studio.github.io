@@ -45,6 +45,17 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/analytics-dashboard.mp4?v=trim-6s-20261020"
   },
   {
+    "title": "Heart",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A hand-drawn heart fills with expressive strokes and a lively pulse.",
+    "poster": "assets/posters/heart.jpg",
+    "preview": "assets/videos/heart.mp4?v=heart-6s-20261021",
+    "video": "assets/videos/heart.mp4?v=heart-6s-20261021"
+  },
+  {
     "title": "Rocket Launch",
     "category": "Illustration",
     "categories": [
@@ -76,6 +87,17 @@ window.MEICO_PROJECTS = [
     "poster": "assets/posters/notification-bell.jpg",
     "preview": "assets/previews/notification-bell.mp4",
     "video": "assets/videos/notification-bell.mp4?v=trim-6s-20261020"
+  },
+  {
+    "title": "Smiley Bubble",
+    "category": "Character",
+    "categories": [
+      "Character"
+    ],
+    "description": "A cheerful smiley speech bubble sketched into a bright, friendly moment.",
+    "poster": "assets/posters/smiley-bubble.jpg",
+    "preview": "assets/videos/smiley-bubble.mp4?v=smiley-bubble-6s-20261021",
+    "video": "assets/videos/smiley-bubble.mp4?v=smiley-bubble-6s-20261021"
   },
   {
     "title": "Bug Hunt",
@@ -120,6 +142,17 @@ window.MEICO_PROJECTS = [
     "poster": "assets/posters/portugal-fans.jpg",
     "preview": "assets/previews/portugal-fans.mp4",
     "video": "assets/videos/portugal-fans.mp4?v=trim-6s-20261020"
+  },
+  {
+    "title": "Chat Bubbles",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A playful collection of hand-drawn chat and reaction bubbles.",
+    "poster": "assets/posters/chat-bubbles.jpg",
+    "preview": "assets/videos/chat-bubbles.mp4?v=chat-bubbles-6s-20261021",
+    "video": "assets/videos/chat-bubbles.mp4?v=chat-bubbles-6s-20261021"
   },
   {
     "title": "30% Badge",
