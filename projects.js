@@ -100,17 +100,6 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/hub-pendulum.mp4"
   },
   {
-    "title": "Voice Call",
-    "category": "Icon",
-    "categories": [
-      "Icon"
-    ],
-    "description": "An incoming call brought to life with a clear motion cue.",
-    "poster": "assets/posters/voice-call.jpg",
-    "preview": "assets/previews/voice-call.mp4",
-    "video": "assets/videos/voice-call.mp4"
-  },
-  {
     "title": "Video Call",
     "category": "Icon",
     "categories": [
@@ -133,17 +122,6 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/portugal-fans.mp4"
   },
   {
-    "title": "PDF Lock",
-    "category": "Icon",
-    "categories": [
-      "Icon"
-    ],
-    "description": "A secure document icon with a compact motion finish.",
-    "poster": "assets/posters/pdf-lock.jpg",
-    "preview": "assets/previews/pdf-lock.mp4",
-    "video": "assets/videos/pdf-lock.mp4"
-  },
-  {
     "title": "30% Badge",
     "category": "Badge",
     "categories": [
@@ -151,7 +129,7 @@ window.MEICO_PROJECTS = [
     ],
     "description": "A bold discount badge that lands with a quick animated accent.",
     "poster": "assets/posters/30-percent-badge.jpg",
-    "preview": "assets/previews/30-percent-badge.mp4",
+    "preview": "assets/videos/30-percent-badge.mp4",
     "video": "assets/videos/30-percent-badge.mp4"
   },
   {
@@ -219,27 +197,5 @@ window.MEICO_PROJECTS = [
     "poster": "assets/posters/router.jpg",
     "preview": "assets/previews/router.mp4",
     "video": "assets/videos/router.mp4"
-  },
-  {
-    "title": "Passcode",
-    "category": "Icon",
-    "categories": [
-      "Icon"
-    ],
-    "description": "A secure passcode concept animated with a crisp, simple rhythm.",
-    "poster": "assets/posters/passcode.jpg",
-    "preview": "assets/previews/passcode.mp4",
-    "video": "assets/videos/passcode.mp4"
-  },
-  {
-    "title": "Eye Blink",
-    "category": "Character",
-    "categories": [
-      "Character"
-    ],
-    "description": "A small character animation with expressive eye movement.",
-    "poster": "assets/posters/eye-blink.jpg",
-    "preview": "assets/previews/eye-blink.mp4",
-    "video": "assets/videos/eye-blink.mp4"
   }
 ];
