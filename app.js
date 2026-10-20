@@ -20,11 +20,26 @@
 
   const heroIcons = Array.from(document.querySelectorAll(".hero-icon"));
   const heroMotionKey = "meico-hero-motion-v1";
+  const heroMotion = heroIcons.length ? getHeroMotionState() : null;
+
+  function randomHeroPhase() {
+    return Number((Math.random() * 6).toFixed(3));
+  }
 
   function getHeroMotionState() {
     try {
       const saved = JSON.parse(localStorage.getItem(heroMotionKey));
       if (saved?.version === 1 && Number.isFinite(saved.epoch) && Array.isArray(saved.icons) && saved.icons.length === heroIcons.length) {
+        let changed = false;
+        saved.icons.forEach((settings) => {
+          if (!Number.isFinite(settings.svgOffset)) {
+            settings.svgOffset = randomHeroPhase();
+            changed = true;
+          }
+        });
+        if (changed) {
+          try { localStorage.setItem(heroMotionKey, JSON.stringify(saved)); } catch {}
+        }
         return saved;
       }
     } catch {}
@@ -39,6 +54,7 @@
         return {
           turnDuration: Number(turnDuration.toFixed(2)),
           turnOffset: Number((Math.random() * turnDuration).toFixed(2)),
+          svgOffset: randomHeroPhase(),
           floatOffset: Math.max(0, -floatDelay),
           angles: [angle(), angle(), angle()]
         };
@@ -48,11 +64,94 @@
     return state;
   }
 
+  function scopeHeroSvgStyles(svg, scopeId) {
+    const idMap = new Map();
+    svg.querySelectorAll("[id]").forEach((element) => {
+      const originalId = element.id;
+      const namespacedId = `${scopeId}-${originalId.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+      idMap.set(originalId, namespacedId);
+      element.id = namespacedId;
+    });
+
+    const rewriteReferences = (value) => {
+      let result = value;
+      idMap.forEach((namespacedId, originalId) => {
+        const escapedId = originalId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        result = result.replace(new RegExp(`url\\([\\\"']?#${escapedId}[\\\"']?\\)`, "g"), `url(#${namespacedId})`);
+        result = result.replace(new RegExp(`(^|[\\s(\"'])#${escapedId}(?=[)\\s\"']|$)`, "g"), `$1#${namespacedId}`);
+      });
+      return result;
+    };
+
+    svg.querySelectorAll("*").forEach((element) => {
+      for (const attribute of Array.from(element.attributes)) {
+        if (attribute.value.includes("#")) element.setAttribute(attribute.name, rewriteReferences(attribute.value));
+      }
+    });
+
+    svg.querySelectorAll("style").forEach((styleElement) => {
+      const source = rewriteReferences(styleElement.textContent);
+      try {
+        const sheet = new CSSStyleSheet();
+        sheet.replaceSync(source);
+        const serializeRules = (rules) => Array.from(rules, (rule) => {
+          if (rule.type === CSSRule.STYLE_RULE) {
+            const selectors = rule.selectorText.split(",").map((selector) => `#${scopeId} ${selector.trim()}`);
+            return `${selectors.join(", ")} { ${rule.style.cssText} }`;
+          }
+          if (rule.cssRules && rule.conditionText) return `@media ${rule.conditionText} { ${serializeRules(rule.cssRules)} }`;
+          return rule.cssText;
+        }).join("\n");
+        styleElement.textContent = serializeRules(sheet.cssRules);
+      } catch {
+        styleElement.textContent = source;
+      }
+    });
+  }
+
+  function phaseHeroSvg(svg, iconIndex) {
+    if (reducedMotion.matches || !heroMotion) return;
+    const elapsed = Math.max(0, (Date.now() - heroMotion.epoch) / 1000);
+    const offset = heroMotion.icons[iconIndex]?.svgOffset || 0;
+    const phase = (elapsed + offset) % 6;
+    svg.querySelectorAll("*").forEach((element) => {
+      const animationName = getComputedStyle(element).animationName;
+      if (!animationName || animationName === "none") return;
+      const delay = animationName.split(",").map(() => `${-phase}s`).join(", ");
+      element.style.setProperty("animation-delay", delay, "important");
+    });
+  }
+
+  async function inlineHeroSvgs() {
+    await Promise.all(heroIcons.map(async (image, index) => {
+      try {
+        const response = await fetch(image.currentSrc || image.src, { cache: "force-cache" });
+        if (!response.ok) throw new Error(`Hero SVG request failed (${response.status})`);
+        const source = await response.text();
+        const parsed = new DOMParser().parseFromString(source, "image/svg+xml");
+        const svg = parsed.documentElement;
+        if (svg.localName !== "svg" || parsed.querySelector("parsererror")) throw new Error("Invalid hero SVG");
+
+        svg.classList.add(...image.classList);
+        if (image.hasAttribute("style")) svg.setAttribute("style", image.getAttribute("style"));
+        svg.id = `hero-svg-${index}`;
+        svg.setAttribute("aria-hidden", "true");
+        svg.setAttribute("focusable", "false");
+        svg.removeAttribute("data-name");
+        scopeHeroSvgStyles(svg, svg.id);
+        image.replaceWith(document.importNode(svg, true));
+        const inlineSvg = document.getElementById(svg.id);
+        requestAnimationFrame(() => phaseHeroSvg(inlineSvg, index));
+      } catch (error) {
+        console.warn("Keeping hero artwork as an image because its SVG could not be synchronized.", error);
+      }
+    }));
+  }
+
   if (heroIcons.length && !reducedMotion.matches) {
-    const motion = getHeroMotionState();
-    const elapsed = Math.max(0, (Date.now() - motion.epoch) / 1000);
+    const elapsed = Math.max(0, (Date.now() - heroMotion.epoch) / 1000);
     heroIcons.forEach((icon, index) => {
-      const settings = motion.icons[index];
+      const settings = heroMotion.icons[index];
       const turnDuration = settings.turnDuration;
       icon.style.setProperty("--turn-duration", `${turnDuration}s`);
       icon.style.setProperty("--float-delay", `${-(elapsed + settings.floatOffset)}s`);
@@ -62,6 +161,8 @@
       icon.style.setProperty("--turn-c", `${settings.angles[2]}deg`);
     });
   }
+
+  inlineHeroSvgs();
 
   if ("IntersectionObserver" in window && !reducedMotion.matches) {
     document.documentElement.classList.add("has-scroll-reveal");
