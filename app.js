@@ -93,7 +93,7 @@
 
   dialogVideo.disablePictureInPicture = true;
 
-  const protectedMediaSelector = 'video, .project-media, .project-poster, .hero-icon, #dialog-svg, img[src*=".gif"]';
+  const protectedMediaSelector = 'video, .project-media, .project-poster, .hero-icon, #dialog-svg, img[src*=".png"]';
   document.querySelectorAll(".hero-icon, #dialog-svg").forEach((image) => {
     image.draggable = false;
   });
