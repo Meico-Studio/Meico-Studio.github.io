@@ -18,6 +18,16 @@
   let revealObserver = null;
   let previewWarmObserver = null;
 
+  document.querySelectorAll(".hero-icon").forEach((icon) => {
+    const turnDuration = 10 + Math.random() * 8;
+    const angle = () => `${(Math.random() * 4 - 2).toFixed(2)}deg`;
+    icon.style.setProperty("--turn-duration", `${turnDuration.toFixed(2)}s`);
+    icon.style.setProperty("--turn-delay", `${(-Math.random() * turnDuration).toFixed(2)}s`);
+    icon.style.setProperty("--turn-a", angle());
+    icon.style.setProperty("--turn-b", angle());
+    icon.style.setProperty("--turn-c", angle());
+  });
+
   if ("IntersectionObserver" in window && !reducedMotion.matches) {
     document.documentElement.classList.add("has-scroll-reveal");
     revealObserver = new IntersectionObserver((entries, observer) => {
