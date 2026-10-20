@@ -124,17 +124,13 @@
 
   dialogVideo.disablePictureInPicture = true;
 
-  const protectedMediaSelector = 'video, .project-media, .project-poster, .hero-icon, #dialog-svg, img[src*=".svg"]';
-  document.querySelectorAll(".hero-icon, #dialog-svg").forEach((image) => {
-    image.draggable = false;
-  });
   document.addEventListener("contextmenu", (event) => {
-    if (event.target instanceof Element && event.target.closest(protectedMediaSelector)) {
+    if (event.target instanceof Element && event.target.closest("video, .project-media, .project-poster")) {
       event.preventDefault();
     }
   });
   document.addEventListener("dragstart", (event) => {
-    if (event.target instanceof Element && event.target.closest(protectedMediaSelector)) {
+    if (event.target instanceof Element && event.target.closest("video, .project-media, .project-poster")) {
       event.preventDefault();
     }
   });
