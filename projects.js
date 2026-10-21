@@ -51,9 +51,9 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A hand-drawn heart fills with expressive strokes and a lively pulse.",
-    "poster": "assets/posters/heart.jpg",
-    "preview": "assets/videos/heart.mp4?v=heart-6s-20261021",
-    "video": "assets/videos/heart.mp4?v=heart-6s-20261021"
+    "poster": "assets/posters/heart.jpg?v=heart-xtra2-20261021",
+    "preview": "assets/videos/heart.mp4?v=heart-xtra2-20261021",
+    "video": "assets/videos/heart.mp4?v=heart-xtra2-20261021"
   },
   {
     "title": "Rocket Launch",
@@ -95,9 +95,9 @@ window.MEICO_PROJECTS = [
       "Character"
     ],
     "description": "A cheerful smiley speech bubble sketched into a bright, friendly moment.",
-    "poster": "assets/posters/smiley-bubble.jpg",
-    "preview": "assets/videos/smiley-bubble.mp4?v=smiley-bubble-6s-20261021",
-    "video": "assets/videos/smiley-bubble.mp4?v=smiley-bubble-6s-20261021"
+    "poster": "assets/posters/smiley-bubble.jpg?v=smiley-xtra-20261021",
+    "preview": "assets/videos/smiley-bubble.mp4?v=smiley-xtra-20261021",
+    "video": "assets/videos/smiley-bubble.mp4?v=smiley-xtra-20261021"
   },
   {
     "title": "Bug Hunt",
@@ -144,15 +144,15 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/portugal-fans.mp4?v=trim-6s-20261020"
   },
   {
-    "title": "Chat Bubbles",
-    "category": "Illustration",
+    "title": "Video Chat",
+    "category": "Icon",
     "categories": [
-      "Illustration"
+      "Icon"
     ],
-    "description": "A playful collection of hand-drawn chat and reaction bubbles.",
-    "poster": "assets/posters/chat-bubbles.jpg",
-    "preview": "assets/videos/chat-bubbles.mp4?v=chat-bubbles-6s-20261021",
-    "video": "assets/videos/chat-bubbles.mp4?v=chat-bubbles-6s-20261021"
+    "description": "A simple camera symbol for a friendly video chat, drawn with expressive motion.",
+    "poster": "assets/posters/video-chat.jpg?v=video-call-extra-20261021",
+    "preview": "assets/videos/video-chat.mp4?v=video-call-extra-20261021",
+    "video": "assets/videos/video-chat.mp4?v=video-call-extra-20261021"
   },
   {
     "title": "30% Badge",
