@@ -144,15 +144,15 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/portugal-fans.mp4?v=trim-6s-20261020"
   },
   {
-    "title": "Video Chat",
-    "category": "Icon",
+    "title": "Chat Lines",
+    "category": "Illustration",
     "categories": [
-      "Icon"
+      "Illustration"
     ],
-    "description": "A simple camera symbol for a friendly video chat, drawn with expressive motion.",
-    "poster": "assets/posters/video-chat.jpg?v=video-call-extra-20261021",
-    "preview": "assets/videos/video-chat.mp4?v=video-call-extra-20261021",
-    "video": "assets/videos/video-chat.mp4?v=video-call-extra-20261021"
+    "description": "A hand-drawn chat bubble brought to life with lively animated lines.",
+    "poster": "assets/posters/chat-lines.jpg?v=chat-lines-20261021",
+    "preview": "assets/videos/chat-lines.mp4?v=chat-lines-20261021",
+    "video": "assets/videos/chat-lines.mp4?v=chat-lines-20261021"
   },
   {
     "title": "30% Badge",
