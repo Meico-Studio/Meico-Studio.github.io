@@ -508,6 +508,20 @@
 
   renderFilters();
   renderProjects();
+
+  // The browser can resolve a URL hash before the deferred project grid exists.
+  // Re-align after page restoration so injected cards do not leave the target section offset.
+  window.addEventListener("pageshow", () => {
+    if (!window.location.hash) return;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (dialog.open) return;
+      const targetId = window.location.hash.slice(1);
+      const target = document.getElementById(decodeURIComponent(targetId));
+      if (!target) return;
+      window.scrollTo({ top: window.scrollY + target.getBoundingClientRect().top, behavior: "instant" });
+    }));
+  });
+
   const requestedProject = new URLSearchParams(window.location.search).get("project");
   if (requestedProject) {
     const linkedProject = projects.find((project) => projectSlug(project) === requestedProject);
