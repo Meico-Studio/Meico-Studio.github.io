@@ -18,9 +18,9 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A familiar terminal symbol animated as a compact interface icon.",
-    "poster": "assets/posters/terminal-icon.jpg?v=terminal-icon-20261022",
-    "preview": "assets/previews/terminal-icon.mp4?v=terminal-icon-20261022",
-    "video": "assets/videos/terminal-icon.mp4?v=terminal-icon-20261022"
+    "poster": "assets/posters/terminal-icon.jpg?v=terminal-icon-revised-20261022",
+    "preview": "assets/previews/terminal-icon.mp4?v=terminal-icon-revised-20261022",
+    "video": "assets/videos/terminal-icon.mp4?v=terminal-icon-revised-20261022"
   },
   {
     "title": "50K Followers",
