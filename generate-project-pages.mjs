@@ -28,6 +28,7 @@ for (const project of projects) {
   const description = project.description || `${project.title}, a motion design project by Meico Studio.`;
   const posterPath = `../../${project.poster}`;
   const posterUrl = `${siteOrigin}/${project.poster}`;
+  const posterMime = path.extname(project.poster.split("?")[0]).toLowerCase() === ".png" ? "image/png" : "image/jpeg";
   const videoPath = `../../${project.video}`;
   const subject = encodeURIComponent(`Project inquiry — ${project.title} | Meico Studio`);
   const body = encodeURIComponent(`Hi Meico Studio,\n\nI’m interested in the ${project.title} project.\n\n${canonical}`);
@@ -52,7 +53,7 @@ for (const project of projects) {
   <meta property="og:url" content="${canonical}">
   <meta property="og:image" content="${posterUrl}">
   <meta property="og:image:alt" content="${escapeHTML(project.title)} animation preview">
-  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:type" content="${posterMime}">
   <meta property="og:image:width" content="960">
   <meta property="og:image:height" content="540">
   <meta name="twitter:card" content="summary_large_image">
