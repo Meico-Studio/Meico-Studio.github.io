@@ -23,6 +23,17 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/terminal.mp4?v=terminal-revised-20261022"
   },
   {
+    "title": "Light Bulb",
+    "category": "Icon",
+    "categories": [
+      "Icon"
+    ],
+    "description": "A clean light bulb icon animated with a bright, satisfying reveal.",
+    "poster": "assets/posters/light-bulb.jpg?v=added-20261022",
+    "preview": "assets/previews/light-bulb.mp4?v=added-20261022",
+    "video": "assets/videos/light-bulb.mp4?v=added-20261022"
+  },
+  {
     "title": "50K Followers",
     "category": "Badge",
     "categories": [
@@ -100,6 +111,17 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/smiley-bubble.mp4?v=smiley-xtra-20261021"
   },
   {
+    "title": "Chat Bubbles",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A collection of hand-drawn message bubbles animated with playful, sketch-like energy.",
+    "poster": "assets/posters/chat-bubbles.jpg?v=added-20261022",
+    "preview": "assets/previews/chat-bubbles.mp4?v=added-20261022",
+    "video": "assets/videos/chat-bubbles.mp4?v=added-20261022"
+  },
+  {
     "title": "Bug Hunt",
     "category": "Icon",
     "categories": [
@@ -175,6 +197,17 @@ window.MEICO_PROJECTS = [
     "poster": "assets/posters/code-window.jpg",
     "preview": "assets/previews/code-window.mp4",
     "video": "assets/videos/code-window.mp4?v=trim-6s-20261020"
+  },
+  {
+    "title": "China Flag",
+    "category": "Illustration",
+    "categories": [
+      "Illustration"
+    ],
+    "description": "A hand-drawn China flag rippling through a lively, celebratory animation.",
+    "poster": "assets/posters/china-flag.jpg?v=added-20261022",
+    "preview": "assets/previews/china-flag.mp4?v=added-20261022",
+    "video": "assets/videos/china-flag.mp4?v=added-20261022"
   },
   {
     "title": "Code Editor",
