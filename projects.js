@@ -6,7 +6,7 @@ window.MEICO_PROJECTS = [
     "categories": [
       "Illustration"
     ],
-    "description": "A hand-drawn China flag rippling through a lively, celebratory animation.",
+    "description": "A China flag brought to life with a loose, hand-drawn scribble animation.",
     "poster": "assets/posters/china-flag.jpg?v=added-20261022",
     "preview": "assets/previews/china-flag.mp4?v=added-20261022",
     "video": "assets/videos/china-flag.mp4?v=added-20261022"
