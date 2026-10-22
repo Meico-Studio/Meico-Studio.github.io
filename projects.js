@@ -12,15 +12,15 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/shopping-bag.mp4?v=trim-6s-20261020"
   },
   {
-    "title": "Code Brackets",
+    "title": "Terminal Icon",
     "category": "Icon",
     "categories": [
       "Icon"
     ],
-    "description": "A clean looping code symbol for a digital first impression.",
-    "poster": "assets/posters/code-brackets.jpg",
-    "preview": "assets/previews/code-brackets.mp4",
-    "video": "assets/videos/code-brackets.mp4?v=trim-6s-20261020"
+    "description": "A familiar terminal symbol animated as a compact interface icon.",
+    "poster": "assets/posters/terminal-icon.jpg?v=terminal-icon-20261022",
+    "preview": "assets/previews/terminal-icon.mp4?v=terminal-icon-20261022",
+    "video": "assets/videos/terminal-icon.mp4?v=terminal-icon-20261022"
   },
   {
     "title": "50K Followers",
