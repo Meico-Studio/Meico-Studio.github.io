@@ -12,15 +12,15 @@ window.MEICO_PROJECTS = [
     "video": "assets/videos/shopping-bag.mp4?v=trim-6s-20261020"
   },
   {
-    "title": "Terminal Icon",
+    "title": "Terminal",
     "category": "Icon",
     "categories": [
       "Icon"
     ],
-    "description": "A familiar terminal symbol animated as a compact interface icon.",
-    "poster": "assets/posters/terminal-icon.jpg?v=terminal-icon-revised-20261022",
-    "preview": "assets/previews/terminal-icon.mp4?v=terminal-icon-revised-20261022",
-    "video": "assets/videos/terminal-icon.mp4?v=terminal-icon-revised-20261022"
+    "description": "A familiar terminal symbol animated for a compact interface.",
+    "poster": "assets/posters/terminal.jpg?v=terminal-revised-20261022",
+    "preview": "assets/previews/terminal.mp4?v=terminal-revised-20261022",
+    "video": "assets/videos/terminal.mp4?v=terminal-revised-20261022"
   },
   {
     "title": "50K Followers",
