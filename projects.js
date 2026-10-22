@@ -18,7 +18,7 @@ window.MEICO_PROJECTS = [
       "Illustration"
     ],
     "description": "A bright product animation built around a simple shopping essential.",
-    "poster": "assets/posters/shopping-bag.jpg",
+    "poster": "assets/posters/shopping-bag.png?v=poster-png-20261022",
     "preview": "assets/previews/shopping-bag.mp4",
     "video": "assets/videos/shopping-bag.mp4?v=trim-6s-20261020"
   },
@@ -29,7 +29,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A friendly video call animation for a connected experience.",
-    "poster": "assets/posters/video-call.jpg",
+    "poster": "assets/posters/video-call.png?v=poster-png-20261022",
     "preview": "assets/previews/video-call.mp4",
     "video": "assets/videos/video-call.mp4?v=trim-6s-20261020"
   },
@@ -40,7 +40,7 @@ window.MEICO_PROJECTS = [
       "Illustration"
     ],
     "description": "A motion study that turns live data into clear visual signals.",
-    "poster": "assets/posters/analytics-dashboard.jpg",
+    "poster": "assets/posters/analytics-dashboard.png?v=poster-png-20261022",
     "preview": "assets/previews/analytics-dashboard.mp4",
     "video": "assets/videos/analytics-dashboard.mp4?v=trim-6s-20261020"
   },
@@ -51,7 +51,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A hand-drawn heart fills with expressive strokes and a lively pulse.",
-    "poster": "assets/posters/heart.jpg?v=heart-xtra2-20261021",
+    "poster": "assets/posters/heart.png?v=poster-png-20261022",
     "preview": "assets/videos/heart.mp4?v=heart-xtra2-20261021",
     "video": "assets/videos/heart.mp4?v=heart-xtra2-20261021"
   },
@@ -62,7 +62,7 @@ window.MEICO_PROJECTS = [
       "Illustration"
     ],
     "description": "A refined animated code window for digital product storytelling.",
-    "poster": "assets/posters/code-window.jpg",
+    "poster": "assets/posters/code-window.png?v=poster-png-20261022",
     "preview": "assets/previews/code-window.mp4",
     "video": "assets/videos/code-window.mp4?v=trim-6s-20261020"
   },
@@ -73,7 +73,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A familiar terminal symbol animated for a compact interface.",
-    "poster": "assets/posters/terminal.jpg?v=terminal-revised-20261022",
+    "poster": "assets/posters/terminal.png?v=poster-png-20261022",
     "preview": "assets/previews/terminal.mp4?v=terminal-revised-20261022",
     "video": "assets/videos/terminal.mp4?v=terminal-revised-20261022"
   },
@@ -84,7 +84,7 @@ window.MEICO_PROJECTS = [
       "Illustration"
     ],
     "description": "A compact launch sequence with a playful burst of energy.",
-    "poster": "assets/posters/rocket-launch.jpg",
+    "poster": "assets/posters/rocket-launch.png?v=poster-png-20261022",
     "preview": "assets/previews/rocket-launch.mp4",
     "video": "assets/videos/rocket-launch.mp4?v=trim-6s-20261020"
   },
@@ -95,7 +95,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A crisp commerce icon animated for a smooth, useful interface.",
-    "poster": "assets/posters/shopping-cart.jpg?v=shopping-cart-first-frame-20261020",
+    "poster": "assets/posters/shopping-cart.png?v=poster-png-20261022",
     "preview": "assets/videos/shopping-cart.mp4?v=shopping-cart-6s-20261020",
     "video": "assets/videos/shopping-cart.mp4?v=shopping-cart-6s-20261020"
   },
@@ -106,7 +106,7 @@ window.MEICO_PROJECTS = [
       "Badge"
     ],
     "description": "A celebratory social milestone brought to life in motion.",
-    "poster": "assets/posters/50k-followers.jpg",
+    "poster": "assets/posters/50k-followers.png?v=poster-png-20261022",
     "preview": "assets/previews/50k-followers.mp4",
     "video": "assets/videos/50k-followers.mp4?v=trim-6s-20261020"
   },
@@ -117,7 +117,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A clean light bulb icon animated with a bright, satisfying reveal.",
-    "poster": "assets/posters/light-bulb.jpg?v=added-20261022",
+    "poster": "assets/posters/light-bulb.png?v=poster-png-20261022",
     "preview": "assets/previews/light-bulb.mp4?v=added-20261022",
     "video": "assets/videos/light-bulb.mp4?v=added-20261022"
   },
@@ -128,7 +128,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A bold shield animation representing digital protection.",
-    "poster": "assets/posters/security-shield.jpg",
+    "poster": "assets/posters/security-shield.png?v=poster-png-20261022",
     "preview": "assets/previews/security-shield.mp4",
     "video": "assets/videos/security-shield.mp4?v=trim-6s-20261020"
   },
@@ -139,7 +139,7 @@ window.MEICO_PROJECTS = [
       "Character"
     ],
     "description": "A cheerful smiley speech bubble sketched into a bright, friendly moment.",
-    "poster": "assets/posters/smiley-bubble.jpg?v=smiley-xtra-20261021",
+    "poster": "assets/posters/smiley-bubble.png?v=poster-png-20261022",
     "preview": "assets/videos/smiley-bubble.mp4?v=smiley-xtra-20261021",
     "video": "assets/videos/smiley-bubble.mp4?v=smiley-xtra-20261021"
   },
@@ -150,7 +150,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A small notification moment designed to catch the eye.",
-    "poster": "assets/posters/notification-bell.jpg",
+    "poster": "assets/posters/notification-bell.png?v=poster-png-20261022",
     "preview": "assets/previews/notification-bell.mp4",
     "video": "assets/videos/notification-bell.mp4?v=trim-6s-20261020"
   },
@@ -161,7 +161,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A clean network router animation for connected technology.",
-    "poster": "assets/posters/router.jpg",
+    "poster": "assets/posters/router.png?v=poster-png-20261022",
     "preview": "assets/previews/router.mp4",
     "video": "assets/videos/router.mp4?v=trim-6s-20261020"
   },
@@ -172,7 +172,7 @@ window.MEICO_PROJECTS = [
       "Illustration"
     ],
     "description": "A hand-drawn chat bubble brought to life with lively animated lines.",
-    "poster": "assets/posters/chat-lines.jpg?v=chat-lines-20261021",
+    "poster": "assets/posters/chat-lines.png?v=poster-png-20261022",
     "preview": "assets/videos/chat-lines.mp4?v=chat-lines-20261021",
     "video": "assets/videos/chat-lines.mp4?v=chat-lines-20261021"
   },
@@ -183,7 +183,7 @@ window.MEICO_PROJECTS = [
       "Illustration"
     ],
     "description": "A collection of hand-drawn message bubbles animated with playful, sketch-like energy.",
-    "poster": "assets/posters/chat-bubbles.jpg?v=added-20261022",
+    "poster": "assets/posters/chat-bubbles.png?v=poster-png-20261022",
     "preview": "assets/previews/chat-bubbles.mp4?v=added-20261022",
     "video": "assets/videos/chat-bubbles.mp4?v=added-20261022"
   },
@@ -194,7 +194,7 @@ window.MEICO_PROJECTS = [
       "Illustration"
     ],
     "description": "A rhythmic network animation connecting motion and structure.",
-    "poster": "assets/posters/hub-pendulum.jpg",
+    "poster": "assets/posters/hub-pendulum.png?v=poster-png-20261022",
     "preview": "assets/previews/hub-pendulum.mp4",
     "video": "assets/videos/hub-pendulum.mp4?v=trim-6s-20261020"
   },
@@ -205,7 +205,7 @@ window.MEICO_PROJECTS = [
       "Badge"
     ],
     "description": "A bold discount badge that lands with a quick animated accent.",
-    "poster": "assets/posters/30-percent-badge.jpg?v=preview-first-frame-20261020",
+    "poster": "assets/posters/30-percent-badge.png?v=poster-png-20261022",
     "preview": "assets/videos/30-percent-badge.mp4?v=trim-6s-20261020",
     "video": "assets/videos/30-percent-badge.mp4?v=trim-6s-20261020"
   },
@@ -216,7 +216,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A clear alert animation for a malware protection concept.",
-    "poster": "assets/posters/malware-alert.jpg",
+    "poster": "assets/posters/malware-alert.png?v=poster-png-20261022",
     "preview": "assets/previews/malware-alert.mp4",
     "video": "assets/videos/malware-alert.mp4?v=trim-6s-20261020"
   },
@@ -227,7 +227,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A playful magnifier animation for finding and fixing bugs.",
-    "poster": "assets/posters/bug-hunt.jpg",
+    "poster": "assets/posters/bug-hunt.png?v=poster-png-20261022",
     "preview": "assets/previews/bug-hunt.mp4",
     "video": "assets/videos/bug-hunt.mp4?v=trim-6s-20261020"
   },
@@ -238,7 +238,7 @@ window.MEICO_PROJECTS = [
       "Illustration"
     ],
     "description": "A focused editor interface brought to life with precise motion.",
-    "poster": "assets/posters/code-editor.jpg",
+    "poster": "assets/posters/code-editor.png?v=poster-png-20261022",
     "preview": "assets/previews/code-editor.mp4",
     "video": "assets/videos/code-editor.mp4?v=trim-6s-20261020"
   },
@@ -249,7 +249,7 @@ window.MEICO_PROJECTS = [
       "Character"
     ],
     "description": "A lively character animation celebrating Portugal supporters.",
-    "poster": "assets/posters/portugal-fans.jpg",
+    "poster": "assets/posters/portugal-fans.png?v=poster-png-20261022",
     "preview": "assets/previews/portugal-fans.mp4",
     "video": "assets/videos/portugal-fans.mp4?v=trim-6s-20261020"
   },
@@ -260,7 +260,7 @@ window.MEICO_PROJECTS = [
       "Icon"
     ],
     "description": "A secure document symbol with a polished motion finish.",
-    "poster": "assets/posters/document-lock.jpg",
+    "poster": "assets/posters/document-lock.png?v=poster-png-20261022",
     "preview": "assets/previews/document-lock.mp4",
     "video": "assets/videos/document-lock.mp4?v=trim-6s-20261020"
   }
